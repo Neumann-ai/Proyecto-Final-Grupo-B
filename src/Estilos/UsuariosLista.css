@@ -1,0 +1,32 @@
+.UsuariosLista{
+    flex: 4;
+    background: white;
+}
+
+.dataGrid{
+    color: white;
+}
+
+.user-apodo{
+    margin-bottom: 0;
+}
+
+.user-apodo img{
+    height: 32px;
+    aspect-ratio: 1;
+    border-radius: 100vh;
+    object-fit: cover;
+    margin-right: 0.5em;
+}
+
+.acciones .fas{
+    font-size: 1.5em;
+    margin: 0 0.5em;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.acciones .fas:hover{
+    opacity: 1;
+
+}

@@ -9,6 +9,8 @@
   width: 90%;
   margin: auto;
   position: relative;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 .contenedor-principal .contenedor-lista-items {
@@ -16,12 +18,17 @@
   padding: 20px 0;
   overflow: hidden;
   scroll-behavior: smooth;
+  transition: all ease 1s;
+
 }
 
 .contenedor-principal .lista-items {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.5em;
+  transition: all ease 1s;
+  transform: translateX(0);
+  overflow: hidden;
 }
 
 .contenedor-principal .categoria-lista {

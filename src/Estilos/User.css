@@ -1,0 +1,19 @@
+.user{
+    flex:4;
+    padding: 20px;
+}
+
+.contenedor-titulo-user{
+    display: flex;
+    align-items: center;
+    justify-content:  space-between;
+}
+
+.contenedor-titulo-user button{
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: var(--clr-morado1);
+    padding: 0.5em 1em;
+    color: #fff;
+}
