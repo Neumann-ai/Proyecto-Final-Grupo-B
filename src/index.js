@@ -7,6 +7,8 @@ import Sidebar from "./Componentes/Panel-Admin/Sidebar";
 import UsuariosLista from "./Componentes/Paginas/UsuariosLista";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import User from "./Componentes/Paginas/User";
+import UserNuevo from "./Componentes/Paginas/UserNuevo";
+import Peliculas from "./Componentes/Paginas/Peliculas";
 
 ReactDOM.render(
   <>
@@ -19,6 +21,8 @@ ReactDOM.render(
         <Routes>
           <Route path="/usuarioslista" element={<UsuariosLista />} />
           <Route path="/user/:userId" element={<User/>} />
+          <Route path="/usuarionuevo" element={<UserNuevo/>} />
+          <Route path="/peliculas" element={<Peliculas/>} />
         </Routes>
       </div>
     </Router>

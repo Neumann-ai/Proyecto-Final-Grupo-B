@@ -1,0 +1,18 @@
+.peliculas{
+    flex: 4;
+    background-color: grey;
+}
+
+.pelicula-nombre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pelicula-nombre img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 100vh;
+    margin-right: 0.5em;
+}

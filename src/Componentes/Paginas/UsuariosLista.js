@@ -84,6 +84,10 @@ export default function UsuariosLista() {
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
+
+      <Link to="/usuarionuevo">
+        <button>Crear usuario</button>
+      </Link>
     </div>
   );
 }

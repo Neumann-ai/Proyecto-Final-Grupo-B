@@ -17,3 +17,8 @@ body {
 .otrocontenido{
   flex: 4;
 }
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
