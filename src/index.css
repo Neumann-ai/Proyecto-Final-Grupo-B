@@ -22,3 +22,7 @@ body {
   text-decoration: none;
   color: inherit;
 }
+
+.outlet{
+  flex: 4;
+}

@@ -4,9 +4,7 @@
 }
 
 .pelicula-nombre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 0;
 }
 
 .pelicula-nombre img{
@@ -15,4 +13,18 @@
     object-fit: cover;
     border-radius: 100vh;
     margin-right: 0.5em;
+}
+
+.lista-peliculas{
+    background: white;
+    height: 42vh;
+}
+
+.agregar-pelicula{
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: var(--clr-morado1);
+    padding: 0.5em 1em;
+    color: #fff;
 }

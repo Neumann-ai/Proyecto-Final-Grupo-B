@@ -1,6 +1,6 @@
 import "../../Estilos/Peliculas.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 
 export default function Peliculas() {
@@ -19,7 +19,7 @@ export default function Peliculas() {
         );
       },
     },
-    { field: "estreno", headerName: "Estreno", width: 200 },
+    { field: "estreno", headerName: "Estreno", width: 100 },
     {
       field: "duracion",
       headerName: "Duracion",
@@ -52,7 +52,7 @@ export default function Peliculas() {
       renderCell: (params) => {
         return (
           <div className="acciones">
-            <Link to={"/peliculas/" + params.row.id}>
+            <Link to={"pelicula/" + params.row.id}>
               <i class="fas fa-user-edit"></i>
             </Link>
             <i class="fas fa-trash-alt"></i>
@@ -77,7 +77,7 @@ export default function Peliculas() {
     
   ];
   return (
-    <div className="UsuariosLista">
+    <div className="lista-peliculas">
       <DataGrid
         className="dataGrid"
         disableSelectionOnClick
@@ -87,10 +87,10 @@ export default function Peliculas() {
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
-
       <Link to="/nuevapelicula">
-        <button>Crear usuario</button>
+        <button className="agregar-pelicula">Agregar Pelicula</button>
       </Link>
+      <Outlet/>
     </div>
   );
 }

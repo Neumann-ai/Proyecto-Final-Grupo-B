@@ -6,12 +6,9 @@ export default function User() {
     <div className="user">
       <div className="contenedor-titulo-user">
         <h2>Editar Usuario</h2>
-        <Link to="/usuarionuevo">
-          <button>Crear usuario</button>
-        </Link>
       </div>
-      <div className="contenedor-usuario">
-        <div className="datos-usuarios">
+      <div className="contenedor-usuario row">
+        <div className="datos-usuarios text-center col-xl-3">
           <figure>
             <img
               src="https://picsum.photos/id/237/200/300"
@@ -20,7 +17,7 @@ export default function User() {
           </figure>
           <div className="apodo">
             <p className="titulo-dato">Apodo</p>
-            <h3 className="dato-actual">Teito</h3>
+            <p className="dato-actual">Teito</p>
           </div>
           <div className="email">
             <p className="titulo-dato">E-mail</p>
@@ -30,11 +27,15 @@ export default function User() {
             <p className="titulo-dato">Contraseña</p>
             <p className="dato-actual">6dfyttryryrtfhhdf</p>
           </div>
+          <div className="rol">
+            <p className="titulo-dato">Rol</p>
+            <p className="dato-actual">Usuario</p>
+          </div>
         </div>
-        <div className="editar-usuario">
+        <div className="editar-usuario col-xl-9 ">
           <span className="editar-titulo">Editar</span>
-          <form className="formulario-editar">
-            <div className="editar-izquierda">
+          <form className="formulario-editar row">
+            <div className="editar-izquierda col-xl-9">
               <div className="item-input">
                 <label htmlFor="apodo">Apodo</label>
                 <input type="text" placeholder="Teito" id="apodo"></input>
@@ -55,8 +56,18 @@ export default function User() {
                   id="contrasenia"
                 ></input>
               </div>
+              <div className="item-input">
+                <div className="opcion-rol">
+                  <input type="radio" name="rol" required id="usuario"></input>
+                  <label htmlFor="usuario">Usuario</label>
+                </div>
+                <div className="opcion-rol">
+                  <input type="radio" name="rol" required id="admin"></input>
+                  <label htmlFor="admin">Admin</label>
+                </div>
+              </div>
             </div>
-            <div className="editar-derecha">
+            <div className="editar-derecha col-xl-3">
               <img
                 src="https://picsum.photos/id/237/200/300"
                 alt="Avatar usuario"
@@ -70,8 +81,8 @@ export default function User() {
                   id="avatar"
                 ></input>
               </div>
-              <button className="enviar-edicion">Enviar</button>
             </div>
+            <button className="enviar-edicion">Enviar</button>
           </form>
         </div>
       </div>

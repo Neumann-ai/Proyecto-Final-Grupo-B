@@ -1,120 +1,56 @@
 .user {
   flex: 4;
-  padding: 0 20px;
+  padding: 20px 20px;
+  background: #fff;
 }
 
-.contenedor-titulo-user {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.user{
+  color: #000;
 }
 
-.contenedor-titulo-user button {
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  background: var(--clr-morado1);
-  padding: 0.5em 1em;
-  color: #fff;
-}
-
-.contenedor-usuario {
-  display: flex;
-}
-
-.datos-usuarios {
-  flex: 1;
-  margin-right: 1em;
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  background: var(--clr-morado2);
-}
-
-.editar-usuario .formulario-editar {
-  display: flex;
-  justify-content: space-between;
-  gap: 1em;
-}
-
-.editar-usuario .formulario-editar .editar-izquierda,
-.editar-usuario .formulario-editar .editar-derecha {
-  flex: 1;
-}
-
-.datos-usuarios figure {
+.datos-usuarios img{
+  height: 5em;
+  width: 5em;
+  border-radius: 100vh;
+  object-fit: cover;
   margin: 0 auto;
 }
 
-.datos-usuarios img {
-  height: 10em;
-  width: 10em;
-  border-radius: 100vh;
-  object-fit: cover;
-}
-
-.datos-usuarios .apodo p {
+.datos-usuarios .titulo-dato{
   margin-bottom: 0;
-  opacity: 0.5;
-}
-
-.datos-usuarios .titulo-dato {
-  margin-bottom: 0;
-  opacity: 0.5;
-}
-
-.datos-usuarios .dato-actual {
-  margin-left: 20px;
-  color: var(--clr-gris);
-}
-
-.editar-usuario {
-  flex: 2;
-  padding: 20px;
-  margin-top: 0;
-  background: var(--clr-morado2);
-}
-
-.editar-usuario .editar-titulo {
-  font-size: 2em;
   font-weight: 700;
-  margin-bottom: 2em;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-.item-input {
+.formulario-editar .item-input{
   display: flex;
   flex-direction: column;
-  margin-bottom: 1em;
+  margin-top: 1em;
+
 }
 
-.item-input input {
+.formulario-editar input{
   border: none;
-  background: transparent;
-  border-bottom: 1px grey solid;
-  padding-left: 0.5em;
+  border-bottom: 1px solid #000;
 }
 
-.editar-usuario .editar-derecha {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.editar-usuario .editar-derecha img {
-  height: 10em;
-  width: 10em;
+.editar-derecha  img{
+  height: 8em;
+  width: 8em;
   border-radius: 100vh;
   object-fit: cover;
-  margin: 0 auto;
 }
 
-.editar-derecha .enviar-edicion {
+.opcion-rol input{
+  margin-right: 0.5em;
+}
+
+button.enviar-edicion{
+  margin-top: 0.5em;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
-  background: var(--clr-gris);
-  padding: 0.5em 1em;
-  color: var(--clr-morado1);
+  color: var(--clr-gris);
+  background-color: var( --clr-morado1);
+  position: relative;
+  bottom: 0;
 }

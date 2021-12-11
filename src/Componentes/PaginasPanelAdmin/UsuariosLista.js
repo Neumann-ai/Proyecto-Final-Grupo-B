@@ -1,6 +1,6 @@
 import "../../Estilos/UsuariosLista.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function UsuariosLista() {
   const columns = [
@@ -37,7 +37,7 @@ export default function UsuariosLista() {
       renderCell: (params) => {
         return (
           <div className="acciones">
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"user/" + params.row.id}>
               <i class="fas fa-user-edit"></i>
             </Link>
             <i class="fas fa-trash-alt"></i>
@@ -56,38 +56,27 @@ export default function UsuariosLista() {
       rol: "usuario comun",
       contrasenia: "sdfvzdsdfs",
     },
-    {
-      id: 2,
-      avatar: "https://picsum.photos/id/237/200/300",
-      apodo: "Teito",
-      email: "1234@gmail.com",
-      rol: "usuario comun",
-      contrasenia: "sdfvzdsdfs",
-    },
-    {
-      id: 3,
-      avatar: "https://picsum.photos/id/237/200/300",
-      apodo: "Lupi",
-      email: "1234@gmail.com",
-      rol: "usuario comun",
-      contrasenia: "sdfvzdsdfs",
-    },
+  
+           
   ];
   return (
-    <div className="UsuariosLista">
-      <DataGrid
-        className="dataGrid"
-        disableSelectionOnClick
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-      />
+    <>
+      <div className="UsuariosLista">
+        <DataGrid
+          className="dataGrid"
+          disableSelectionOnClick
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+        />
 
-      <Link to="/usuarionuevo">
-        <button>Crear usuario</button>
-      </Link>
-    </div>
+        <Link to="/usuarionuevo">
+          <button className="crear-usuario">Crear usuario</button>
+        </Link>
+        <Outlet />
+      </div>
+    </>
   );
 }

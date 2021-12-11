@@ -1,0 +1,28 @@
+.titulo-configuracion{
+    font-size: 3em;
+    margin-left:1em ;
+}
+
+.mis-datos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.avatar img{
+    border-radius: 100vh;
+    height: 20em;
+    width: 20em;
+    object-fit: cover;
+}
+
+.item-info-cuenta .info-titulo{
+    font-size: 2em;
+    opacity: 0.8;
+    font-weight: 700;
+}
+
+.item-info-cuenta .info{
+    font-size: 1.5em;
+}
