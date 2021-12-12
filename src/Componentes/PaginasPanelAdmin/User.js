@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "../../Estilos/User.css";
 
 export default function User() {

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import BtnAgragarCard from "./BtnAgragarCard";
 import CardItems from "./CardItems";
 
@@ -16,18 +16,25 @@ import CardItems from "./CardItems";
 
 function ListaCards() {
   const listRef = useRef();
+  const [contador, setContador] = useState(0)
 
   const handleClick = (direccion) => {
-    const anchoPantalla = listRef.current.offsetWidth;
+    const anchoPantalla = listRef.current.offsetWidth / 5;
 
     if (direccion === "left") {
-      listRef.current.style.transform = `translateX(${anchoPantalla}px)`;
-      //listRef.current.scrollLeft +=  listRef.current.offsetWidth
+      setContador((contador - 1) < 0 ? 0 : contador - 1)
+      listRef.current.style.transform = `translateX(-${contador * anchoPantalla}px)`;
+      
+     // listRef.current.scrollLeft +=  listRef.current.offsetWidth
     }
 
     if (direccion === "right") {
-      listRef.current.style.transform = `translateX(-${anchoPantalla}px)`;
-      //listRef.current.scrollLeft -=  listRef.current.offsetWidth
+      console.log(listRef.current.offsetWidth);
+      setContador((contador * anchoPantalla) >  listRef.current.offsetWidth ? contador : contador + 1)
+
+      listRef.current.style.transform = `translateX(-${contador * anchoPantalla}px)`;
+
+       //listRef.current.scrollLeft -=  listRef.current.offsetWidth
     }
   };
 
@@ -41,7 +48,7 @@ function ListaCards() {
       >
         <i className="fas fa-caret-left"></i>
       </button>
-      <section className="contenedor-lista-items" ref={listRef}>
+      <section className="contenedor-lista-items" >
         <section className="lista-items" ref={listRef}>
           <BtnAgragarCard />
           <CardItems />

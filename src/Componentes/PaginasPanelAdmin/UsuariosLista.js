@@ -76,7 +76,7 @@ export default function UsuariosLista() {
           data-bs-toggle="modal"
           data-bs-target="#agregarUsuarioModal"
         >
-          Agregar Pelicula
+          Crear usuario
         </button>
         <div
           class="modal fade"
