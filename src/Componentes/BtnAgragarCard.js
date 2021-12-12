@@ -5,16 +5,16 @@ import "../Estilos/EstilosCard.css";
 function BtnAgragarCard() {
   return (
     <>
-    <Link to="/configuracion">
-      <div className="btn-agregar-item">
-        <div>
-          <i className="fas fa-plus"></i>
+      <Link to="/configuracion">
+        <div className="btn-agregar-item">
+          <div>
+            <i className="fas fa-plus"></i>
+          </div>
+          <div>
+            <p>Agregar</p>
+          </div>
         </div>
-        <div>
-          <p>Agregar</p>
-        </div>
-      </div>
-    </Link>
+      </Link>
     </>
   );
 }

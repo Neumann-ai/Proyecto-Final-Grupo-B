@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
 import "../../Estilos/Pelicula.css";
 
 export default function Pelicula() {
   return (
-    <>
+    <div className="contenedor-editar-pelicula">
       <div className="pelicula">
         <div className="contenedor-titulo-pelicula">
           <h2>Editar Pelicula</h2>
         </div>
       </div>
-      <div className="contenedor-info-editar row">
-        <form>
-          <div className="editar-izquierda col-xl-9">
+      <div className="contenedor-info-editar">
+        <form className="row">
+          <div className="editar-izquierda col-12 col-sm-6 col-xl-8">
             <div className="item-input">
               <label htmlFor="nombre">Nombre</label>
               <input type="text" placeholder="titanic" id="nombre"></input>
@@ -37,22 +36,22 @@ export default function Pelicula() {
               <input type="text" placeholder="bla bla" id="sinopsis"></input>
             </div>
             <div className="item-input">
-              <label htmlFor="genero">Genero</label>
-              <input type="text" placeholder="Romance" id="genero"></input>
+              <label htmlFor="trailer">Trailer</label>
+              <input type="url" placeholder="Romance" id="trailer"></input>
             </div>
           </div>
-          <div className="editar-derecha col-xl-3">
-            <img
-              src="https://picsum.photos/id/237/200/300"
-              alt="imagen pelicula"
-            />
+          <div className="editar-derecha col-12 col-sm-6 col-xl-4">
             <div className="item-input">
-              <label htmlFor="avatar">Avatar</label>
+              <label htmlFor="imagen">Imagen</label>
               <input
                 type="url"
                 placeholder="https://picsum.photos/id/237/200/300"
-                id="avatar"
+                id="imagen"
               ></input>
+            </div>
+            <div className="item-input">
+              <label htmlFor="genero">Genero</label>
+              <input type="text" placeholder="Romance" id="genero"></input>
             </div>
             <div className="item-input">
               <div className="opcion-tipo">
@@ -68,6 +67,6 @@ export default function Pelicula() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,4 +1,3 @@
-
 import Sidebar from "./Panel-Admin/Sidebar";
 import { Outlet } from "react-router-dom";
 import "../index.css";

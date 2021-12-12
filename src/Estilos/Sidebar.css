@@ -4,9 +4,9 @@
 
 .sidebar {
   flex: 1;
-  position: sticky;
-  top: 0;
   height: 100vh;
+  top: 0;
+  position: sticky;
 }
 
 .sidebar .sidebar-contenedor {
@@ -20,7 +20,7 @@
 }
 
 .sidebar-titulo {
-  font-size: 1.2em;
+  font-size: 2em;
   color: rgb(134, 134, 134);
 }
 
@@ -41,4 +41,34 @@
 .sidebar-item p {
   margin-left: 0.5em;
   margin-bottom: 0;
+}
+
+@media (max-width: 940px) {
+  .sidebar ul {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .sidebar-item {
+    padding: 0.5em 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .sidebar-titulo{
+    display: none;
+  }
+
+  .sidebar-item {
+    justify-content: center;
+  }
+  .sidebar-item .fas {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .sidebar-item p {
+    display: none;
+  }
 }

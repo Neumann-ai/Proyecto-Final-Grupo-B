@@ -9,20 +9,20 @@ body {
   background-color: #030109;
 }
 
-.container-adminpanel{
+.container-adminpanel {
   display: flex;
   color: white;
 }
 
-.otrocontenido{
+.otrocontenido {
   flex: 4;
 }
 
-.link{
+.link {
   text-decoration: none;
   color: inherit;
 }
 
-.outlet{
+.outlet {
   flex: 4;
 }

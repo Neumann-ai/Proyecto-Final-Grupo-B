@@ -1,6 +1,6 @@
 import "../../Estilos/Sidebar.css";
 
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -9,6 +9,7 @@ export default function Sidebar() {
         <div className="sidebar-contenedor">
           <div className="sidebar-menu">
             <h3 className="sidebar-titulo">Panel</h3>
+            
             <ul>
               <NavLink to="misdatos" className="link">
                 <li className="sidebar-item">
@@ -20,7 +21,7 @@ export default function Sidebar() {
                   <i className="fas fa-users"></i> <p>Usuarios</p>
                 </li>
               </NavLink>
-              <NavLink to="peliculas"  className="link">
+              <NavLink to="peliculas" className="link">
                 <li className="sidebar-item">
                   <i className="fas fa-film"></i> <p>Peliculas</p>
                 </li>
@@ -29,7 +30,6 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-      
     </>
   );
 }

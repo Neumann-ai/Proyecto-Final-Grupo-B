@@ -19,7 +19,6 @@
   overflow: hidden;
   scroll-behavior: smooth;
   transition: all ease 1s;
-
 }
 
 .contenedor-principal .lista-items {
@@ -91,12 +90,12 @@
 
 .card-contenedor .card-info .card-titulo {
   font-weight: 700;
-  font-size: clamp(.5em, 2vw, 1.5em);
+  font-size: clamp(0.5em, 2vw, 1.5em);
   letter-spacing: 1px;
 }
 
 .card-contenedor .card-info .card-estreno {
-  font-size: clamp(.5em, 2vw, 1.5em);
+  font-size: clamp(0.5em, 2vw, 1.5em);
   letter-spacing: 1px;
 }
 
@@ -121,9 +120,9 @@
 }
 
 @media (min-width: 900px) {
-    .card-contenedor .card-info{
-        padding: 0.5em 0 0 1em; 
-    }
+  .card-contenedor .card-info {
+    padding: 0.5em 0 0 1em;
+  }
 
   .contenedor-principal .lista-items {
     gap: 1em;
@@ -133,7 +132,7 @@
     min-width: 20%;
     height: 30%;
     background: var(--clr-morado3);
-    border: .8em solid var(--clr-gris);
+    border: 0.8em solid var(--clr-gris);
     color: var(--clr-gris);
   }
 
@@ -149,5 +148,4 @@
     min-width: 15%;
     height: 25%;
   }
-
 }
