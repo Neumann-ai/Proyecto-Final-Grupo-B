@@ -1,0 +1,43 @@
+*{
+    list-style: none;
+}
+
+.sidebar{
+    flex: 1;
+    height: 100%;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar .sidebar-contenedor{
+    padding: 1.5em;
+    background: var(--clr-gris);
+}
+
+.sidebar .sidebar-contenedor .siedbar-menu{
+    margin-bottom: 3em;
+}
+
+.sidebar-titulo{
+    font-size: 1.2em;
+    color: rgb(134, 134, 134);
+}
+
+.sidebar-item {
+    display: flex;
+    align-content: center;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.sidebar-item.activo,
+.sidebar-item:hover{
+    background: rgb(216, 216, 216);
+}
+
+.sidebar-item p{
+    margin-left: 0.5em;
+    margin-bottom: 0;
+}

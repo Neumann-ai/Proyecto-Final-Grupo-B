@@ -1,0 +1,24 @@
+:root {
+  --clr-morado3: #030109;
+  --clr-morado2: #1b0148;
+  --clr-morado1: #4400a3;
+  --clr-gris: #cecccc;
+}
+
+body {
+  background-color: #030109;
+}
+
+.container-adminpanel{
+  display: flex;
+  color: white;
+}
+
+.otrocontenido{
+  flex: 4;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
