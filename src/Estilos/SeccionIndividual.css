@@ -1,0 +1,48 @@
+.container-sm {
+    color: #cecccc;
+  }
+  
+  figure {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  figure img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  
+  .contenedor-pelicula .titulo h1 {
+    font-weight: 700;
+    color: #cecccc;
+  }
+  
+  .datos .item-datos {
+    display: flex;
+  }
+  
+  .datos .item-datos p {
+    margin-right: 0.5em;
+  }
+  
+  .datos .item-datos .titulo-dato {
+    font-weight: 700;
+  }
+  
+  
+  footer{
+    margin-top: 3em;
+    height: 150px;
+    background-color: #11082b;
+    position: relative;
+    bottom: 0;
+    color: #cecccc;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor:  context-menu;
+  }

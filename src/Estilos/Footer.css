@@ -1,0 +1,13 @@
+footer{
+    margin-top: 3em;
+    height: 150px;
+    background-color: #11082b;
+    position: relative;
+    bottom: 0;
+    color: #cecccc;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor:  context-menu;
+  }

@@ -7,6 +7,8 @@ import Peliculas from "./Componentes/PaginasPanelAdmin/Peliculas";
 import UsuariosLista from "./Componentes/PaginasPanelAdmin/UsuariosLista";
 import User from "./Componentes/PaginasPanelAdmin/User";
 import Pelicula from "./Componentes/PaginasPanelAdmin/Pelicula";
+import SeccionIndividual from "./Componentes/SeccionIndividual";
+import Footer from "./Componentes/Footer";
 
 export default function App() {
   return (
@@ -14,6 +16,8 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/peliculas" element={<Home tipo="peliculas" />} />
+          <Route path="/series" element={<Home tipo="series" />} />
           <Route path="/configuracion" element={<Configuracion />}>
             <Route index element={<MisDatos />} />
             <Route path="misdatos" element={<MisDatos />} />
@@ -24,8 +28,10 @@ export default function App() {
               <Route path="pelicula/:peliId" element={<Pelicula />} />
             </Route>
           </Route>
+          <Route path="/ver"  element={<SeccionIndividual/>}/>
         </Routes>
       </Router>
+      <Footer/>
     </div>
   );
 }
