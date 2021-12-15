@@ -2,43 +2,47 @@ import home from './home-solid.svg';
 import search from './search-solid.svg';
 import user from './user-circle-solid.svg';
 import './Navbar.css'
-const cerrarSesion= () => {
+const cerrarSesion = () => {
     // TODO cerrar sesion
 }
 function Navbar() {
     return (
         <>
-            <nav className="navbar navbar-expand-sm">
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navPeliculas" aria-controls="navPeliculas" aria-expanded="false" aria-label="Toggle navigation">
-                    <button className="navbar-toggler-icon"></button>
-                </button>
-                <div className="collapse navbar-collapse" id="navPeliculas">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">
-                                <img className={"icon filter-purple"} src={home} alt="icono home" />
-                                <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <form className="align-items-center my-2 my-lg-0 d-flex">
-                                <input id="search" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button class="btn boton my-2 my-sm-0" type="submit">
-                                    <img className={"icon filter-white"} src={search} alt="icono home" />
-                                </button>
-                            </form>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img className={"icon filter-purple"} src={user} alt="icono home" />
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="userDropdown">
-                                <a className="dropdown-item" href="#">Ayuda</a>
-                                <a className="dropdown-item" href="#">Configuracion</a>
-                                <div className="dropdown-divider"></div>
-                                <button className="dropdown-item" onClick={cerrarSesion()}>Cerrar sesion</button>
-                            </div>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Logo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <img className={"icon filter-purple"} src={home} alt="icono home" />
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                   <form class="d-flex">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                    <button class="btn boton" type="submit">
+                                        <img className={"icon filter-white"} src={search} alt="icono home" />
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img className={"icon filter-purple"} src={user} alt="icono home" />
+
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Ayuda</a></li>
+                                    <li><a class="dropdown-item" href="#">Configuracionn</a></li>
+                                    <li><div class="dropdown-divider"> </div></li>
+                                    <li><button className="dropdown-item" onClick={cerrarSesion()}>Cerrar sesion</button></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </>
