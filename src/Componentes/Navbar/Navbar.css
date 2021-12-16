@@ -7,6 +7,10 @@
     --main-color-white: #CECCCC;
     font-family: "Roboto","sans-serif";
 }
+
+.container-fluid{
+    justify-content: space-between;
+}
 .filter-white{
 filter: invert(89%) sepia(5%) saturate(62%) hue-rotate(314deg) brightness(94%) contrast(88%);
 }
@@ -20,7 +24,7 @@ nav{
     background-color: var(--main-color-white);
     color: var(--main-color-indigo);
 }
-i{
+.redes-item i{
         background-color: var(--main-color-white);
         color: var(--main-color-indigo);
 }

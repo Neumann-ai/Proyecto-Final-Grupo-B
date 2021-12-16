@@ -14,7 +14,7 @@ function Footer() {
 
                 </ul>
                 <ul className="redes">
-                    <li ><a className="redes-item" href="#"><i class="bi bi-instagram"></i></a></li>
+                    <li ><a className="redes-item" href="#"><i className="bi bi-instagram"></i></a></li>
 
 
                 </ul>

@@ -1,11 +1,15 @@
 import { useLocation } from "react-router-dom";
 import "../Estilos/SeccionIndividual.css";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
+
 
 export default function SeccionIndividual() {
   let location = useLocation()
   console.log(location);
   return (
     <div>
+      <Navbar/>
       <section className="container-sm contenedor-pelicula">
         <figure className="imagen-pelicula">
           <img
@@ -65,6 +69,7 @@ export default function SeccionIndividual() {
           ></iframe>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 }

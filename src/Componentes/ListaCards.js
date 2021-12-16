@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import BtnAgragarCard from "./BtnAgragarCard";
 import CardItems from "./CardItems";
+import "../Estilos/EstilosCard.css"
 
 function ListaCards({ lista }) {
   const listRef = useRef();
@@ -42,7 +42,6 @@ function ListaCards({ lista }) {
       </button>
       <section className="contenedor-lista-items">
         <section className="lista-items" ref={listRef}>
-          <BtnAgragarCard />
           {lista.contenido.map((item, index) => (
             <CardItems item={item} index={index} />
           ))}
