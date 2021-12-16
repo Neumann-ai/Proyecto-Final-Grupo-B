@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    --main-color-black: #030109;
+    --main-color-purple: #1b0148;
+    --main-color-indigo: #4400a3;
+    --main-color-white: #CECCCC;
+    font-family: "Roboto","sans-serif";
+}
+.filter-white{
+filter: invert(89%) sepia(5%) saturate(62%) hue-rotate(314deg) brightness(94%) contrast(88%);
+}
+.filter-indigo{
+    filter: invert(11%) sepia(97%) saturate(6602%) hue-rotate(269deg) brightness(62%) contrast(115%);
+}
+.filter-purple{
+    filter: invert(5%) sepia(87%) saturate(6707%) hue-rotate(56deg) brightness(84%) contrast(125%);
+}
+nav{
+    background-color: var(--main-color-white);
+    color: var(--main-color-indigo);
+}
+i{
+        background-color: var(--main-color-white);
+        color: var(--main-color-indigo);
+}
+li a {
+    background-color: var(--main-color-white);
+    color: var(--main-color-indigo);
+}
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.botonera{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.boton{
+    background-color: var(--main-color-indigo);
+    color: var(--main-color-white);
+}
+.boton:hover{
+    background-color: var(--main-color-purple);
+    color: var(--main-color-white);
+
+}
+#search{
+    min-width: 100px;
+}
+
+.dropdown-menu{
+    background-color: var(--main-color-indigo);
+}
+.dropdown-item{
+    background-color: var(--main-color-indigo);
+    color: var(--main-color-white);
+}
+.dropdown-item:hover{
+    background-color: var(--main-color-purple);
+    color: var(--main-color-white);
+}
+
+@media only screen and (min-width:529){
+}
