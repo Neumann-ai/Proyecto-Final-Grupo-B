@@ -8,7 +8,7 @@ import UsuariosLista from "./Componentes/PaginasPanelAdmin/UsuariosLista";
 import User from "./Componentes/PaginasPanelAdmin/User";
 import Pelicula from "./Componentes/PaginasPanelAdmin/Pelicula";
 import SeccionIndividual from "./Componentes/SeccionIndividual";
-import Footer from "./Componentes/Footer";
+
 
 export default function App() {
   return (
@@ -31,7 +31,6 @@ export default function App() {
           <Route path="/ver"  element={<SeccionIndividual/>}/>
         </Routes>
       </Router>
-      <Footer/>
     </div>
   );
 }
