@@ -4,17 +4,17 @@ function Footer() {
         <>
             <div className="footer">
                 <ul className="redes">
-                    <li><a href="#"><i className="bi bi-github"></i></a></li>
+                    <li ><a className="redes-item" href="#"><i className="bi bi-github"></i></a></li>
 
 
                 </ul>
                 <ul className="redes">
-                    <li><a href="#"><i className="bi bi-meta"></i></a></li>
+                    <li ><a className="redes-item" href="#"><i className="bi bi-meta"></i></a></li>
 
 
                 </ul>
                 <ul className="redes">
-                    <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                    <li ><a className="redes-item" href="#"><i class="bi bi-instagram"></i></a></li>
 
 
                 </ul>
