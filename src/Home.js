@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ListaCards from "./Componentes/ListaCards";
 import axios from "axios";
 import Footer from "./Componentes/Footer/Footer";
-
+import Navbar from "./Componentes/Navbar/Navbar";
 export default function Home({ tipo }) {
   const [listas, setListas] = useState([]);
 
@@ -22,7 +22,7 @@ export default function Home({ tipo }) {
 
   return (
     <div>
-      <h1>AQUI VA EL NAVBAR</h1>
+      <Navbar/>
       <h2>Aqui va el slider</h2>
       {listas.map((lista) => (
         <ListaCards lista={lista} />
