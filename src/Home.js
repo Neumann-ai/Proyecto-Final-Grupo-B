@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ListaCards from "./Componentes/ListaCards";
 import axios from "axios";
+import Footer from "./Componentes/Footer/Footer";
 
 export default function Home({ tipo }) {
   const [listas, setListas] = useState([]);
@@ -26,6 +27,7 @@ export default function Home({ tipo }) {
       {listas.map((lista) => (
         <ListaCards lista={lista} />
       ))}
+      <Footer/>
     </div>
   );
 }
