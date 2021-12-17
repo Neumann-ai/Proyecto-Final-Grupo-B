@@ -6,24 +6,26 @@ import axios from 'axios';
 
 function LogIn(){
 
-    const [user, setUser] = useState(
-        {
-            nombre : "",
-            contrasenia : ""
-        })
+    const [nombre, setNombre] = useState("");
+    const [contrasenia, setContrasenia] = useState("");
     
-    const handleChange = e =>
+    const onChangeName = (e) =>
     {
-        const {name, value} = e.target;
-        setUser(
-            {
-                ...user,
-                [name] : value
-            })
-    }    
+       setNombre({nombre : e.target.value});
+       console.log(nombre);
+    }
+
+    const onChangePass = (e) =>
+    {
+       setContrasenia({contrasenia : e.target.value});
+       console.log(contrasenia);
+    }
+    
+    
     const LogIn = () => 
     {
-        axios.post("http://localhost:4001/logIn", user);
+        let data = [nombre, contrasenia];
+        axios.post("http://localhost:4001/login", data).then(res => console.log(res));
     }
 
 
@@ -40,7 +42,7 @@ function LogIn(){
                     <input type="password" className="form-control userPass" id="userPass" placeholder="Contraseña" />
                 </div>
                 <div className="col-12">
-                 <Link to={"peliculas"} className="btn btn-primary" onClick={LogIn}>Log In</Link>
+                 <Link to={"/"} className="btn btn-primary" onClick={LogIn}>Log In</Link>
                  <Link to={"Register"} className="btn btn-primary">Register</Link>
                 </div>
             </form>
