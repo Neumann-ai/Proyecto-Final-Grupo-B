@@ -82,14 +82,14 @@
   object-fit: cover;
 }
 
-.link-card .card-contenedor .card-info {
+.link-card  .card-info {
   background-color: var(--clr-morado1);
   position: absolute;
   bottom: 0;
   height: 25%;
   width: 100%;
   font-weight: 700;
-
+  padding: 0.5em;
 }
 
 .link-card .card-contenedor p {
@@ -133,10 +133,8 @@
   right: 0;
 }
 
-@media (min-width: 900px) {
-  .card-contenedor .card-info {
-    padding: 0.5em 0 0 1em;
-  }
+@media (max-width: 900px) {
+  
 
   .contenedor-principal .lista-items {
     gap: 1em;
@@ -150,8 +148,8 @@
     color: var(--clr-gris);
   }
 
-  .card-contenedor {
-    min-width: 20%;
+  .link-card {
+    min-width: 30%;
     height: 30%;
   }
 }
