@@ -1,8 +1,10 @@
 import "../../Estilos/Peliculas.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link, Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function Peliculas() {
+export default function Peliculas(pelis) {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
@@ -18,6 +20,7 @@ export default function Peliculas() {
         );
       },
     },
+    { field: "director", headerName: "Director", width: 100 },
     { field: "estreno", headerName: "Estreno", width: 100 },
     {
       field: "duracion",
@@ -61,11 +64,27 @@ export default function Peliculas() {
     },
   ];
 
+  //MOSTRAR PELICULAS EN LISTA
+  const [pelicula, setPelicula] = useState({});
+
+  useEffect(() => {
+    const getPeliculas = async () => {
+      try {
+        const res = await axios.get("peliculas/" + pelis);
+        setPelicula(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getPeliculas();
+  }, [pelis]);
+
   const rows = [
     {
       id: 1,
       imagen: "https://picsum.photos/id/237/200/300",
       nombre: "Snow",
+      director: "nose",
       estreno: "2021",
       duracion: "100min",
       protagonistas:
@@ -75,6 +94,58 @@ export default function Peliculas() {
       genero: "Romance",
     },
   ];
+
+  // AGREGAR NUEVA PELICULA
+  const [item, setItem] = useState({
+    nombre: "",
+    director: "",
+    protagonistas: "",
+    duracion: "",
+    trailer: "",
+    imagen: "",
+    fecha_de_Estreno: "",
+    sinopsis: "",
+    genero: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setItem((prevImput) => {
+      return {
+        ...prevImput,
+        [name]: value,
+      };
+    });
+  }
+
+  function agregarItem(event) {
+    event.preventDefault();
+    const nuevoItem = {
+      nombre: item.nombre,
+      director: item.director,
+      protagonistas: item.protagonistas,
+      duracion: item.duracion,
+      trailer: item.trailer,
+      imagen: item.imagen,
+      fecha_de_Estreno: item.fecha_de_Estreno,
+      sinopsis: item.sinopsis,
+      genero: item.genero,
+    };
+    axios.post("/peliculas", nuevoItem);
+
+    setItem({
+      nombre: "",
+      director: "",
+      protagonistas: "",
+      duracion: "",
+      trailer: "",
+      imagen: "",
+      fecha_de_Estreno: "",
+      sinopsis: "",
+      genero: "",
+    });
+  }
+
   return (
     <div className="lista-peliculas">
       <DataGrid
@@ -121,41 +192,85 @@ export default function Peliculas() {
                   <div className="item-input">
                     <label htmlFor="nombre">Nombre</label>
                     <input
+                      onChange={handleChange}
+                      name="nombre"
+                      value={item.nombre}
                       type="text"
-                      placeholder="titanic"
+                      placeholder=" Titanic"
                       id="nombre"
+                      required
                     ></input>
                   </div>
                   <div className="item-input">
-                    <label htmlFor="estreno">Estreno</label>
-                    <input type="text" placeholder="2021" id="estreno"></input>
+                    <label htmlFor="nombre">Direccion</label>
+                    <input
+                      onChange={handleChange}
+                      name="director"
+                      value={item.director}
+                      type="text"
+                      placeholder=" quien sabe"
+                      id="director"
+                      required
+                    ></input>
+                  </div>
+                  <div className="item-input">
+                    <label htmlFor="duracion">Estreno</label>
+                    <input
+                      onChange={handleChange}
+                      name="fecha_de_Estreno"
+                      value={item.fecha_de_Estreno}
+                      type="number"
+                      placeholder="2021"
+                      id="estreno"
+                      required
+                    ></input>
                   </div>
                   <div className="item-input">
                     <label htmlFor="duracion">Duracion</label>
-                    <input type="text" placeholder="2021" id="duracion"></input>
+                    <input
+                      onChange={handleChange}
+                      name="duracion"
+                      value={item.duracion}
+                      type="text"
+                      placeholder="2021"
+                      id="duracion"
+                      required
+                    ></input>
                   </div>
                   <div className="item-input">
                     <label htmlFor="protagonistas">Protagonistas</label>
                     <input
+                      onChange={handleChange}
+                      name="protagonistas"
+                      value={item.protagonistas}
                       type="text"
                       placeholder="Leonardo Di Caprio"
                       id="protagonistas"
+                      required
                     ></input>
                   </div>
                   <div className="item-input">
                     <label htmlFor="sinopsis">Sinopsis</label>
                     <input
+                      onChange={handleChange}
+                      name="sinopsis"
+                      value={item.sinopsis}
                       type="text"
                       placeholder="bla bla"
                       id="sinopsis"
+                      required
                     ></input>
                   </div>
                   <div className="item-input">
                     <label htmlFor="trailer">Trailer</label>
                     <input
+                      onChange={handleChange}
+                      name="trailer"
+                      value={item.trailer}
                       type="url"
                       placeholder="Romance"
                       id="trailer"
+                      required
                     ></input>
                   </div>
                 </div>
@@ -163,17 +278,25 @@ export default function Peliculas() {
                   <div className="item-input">
                     <label htmlFor="imagen">Imagen</label>
                     <input
+                      onChange={handleChange}
+                      name="imagen"
+                      value={item.imagen}
                       type="url"
                       placeholder="https://picsum.photos/id/237/200/300"
                       id="imagen"
+                      required
                     ></input>
                   </div>
                   <div className="item-input">
                     <label htmlFor="genero">Genero</label>
                     <input
+                      onChange={handleChange}
+                      name="genero"
+                      value={item.genero}
                       type="text"
                       placeholder="Romance"
                       id="genero"
+                      required
                     ></input>
                   </div>
                   <div className="item-input">
@@ -181,8 +304,9 @@ export default function Peliculas() {
                       <input
                         type="radio"
                         name="tipo"
-                        required
                         id="pelicula"
+                        value="pelicula"
+                        
                       ></input>
                       <label htmlFor="pelicula">Pelicula</label>
                     </div>
@@ -192,6 +316,7 @@ export default function Peliculas() {
                         name="tipo"
                         required
                         id="serie"
+                        value="serie"
                       ></input>
                       <label htmlFor="serie">Serie</label>
                     </div>
@@ -205,10 +330,14 @@ export default function Peliculas() {
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                Cerrar
               </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
+              <button
+                onClick={agregarItem}
+                type="button"
+                class="btn btn-primary"
+              >
+                Guardar
               </button>
             </div>
           </div>

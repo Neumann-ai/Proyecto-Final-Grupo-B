@@ -7,7 +7,7 @@ export default function SeccionIndividual() {
   return (
     <div>
       <section className="container-sm contenedor-pelicula">
-        <figure className="imagen-pelicula">
+        <figure className="header-pelicula">
           <img
             src="https://imagenes.20minutos.es/files/article_amp/uploads/imagenes/2012/03/31/54652.jpg"
             alt=""
