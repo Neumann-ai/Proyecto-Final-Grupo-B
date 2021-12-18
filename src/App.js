@@ -9,7 +9,6 @@ import User from "./Componentes/PaginasPanelAdmin/User";
 import Pelicula from "./Componentes/PaginasPanelAdmin/Pelicula";
 import SeccionIndividual from "./Componentes/SeccionIndividual";
 
-
 export default function App() {
   return (
     <div>
