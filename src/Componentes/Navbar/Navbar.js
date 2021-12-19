@@ -1,6 +1,7 @@
 import home from './home-solid.svg';
 import search from './search-solid.svg';
 import user from './user-circle-solid.svg';
+import {Link} from "react-router-dom";
 import './Navbar.css'
 const cerrarSesion = () => {
     // TODO cerrar sesion
@@ -8,26 +9,18 @@ const cerrarSesion = () => {
 function Navbar() {
     return (
         <>
-<<<<<<< HEAD
-            <nav className="navbar navbar-expand-sm navbar-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="/">Logo</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-=======
             <nav class="navbar navbar-expand-sm navbar-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Rollflix</a>
+                    <a class="navbar-brand" href="/">Rollflix</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
->>>>>>> 45bdd8b4fec6f2309f1821464e24a00bdb2d999e
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">
+                                <Link className="nav-link active" aria-current="page" to="/">
                                     <img className={"icon filter-purple"} src={home} alt="icono home" />
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <form className="d-flex">
@@ -38,13 +31,13 @@ function Navbar() {
                                 </form>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img className={"icon filter-purple"} src={user} alt="icono home" />
 
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="/">Ayuda</a></li>
-                                    <li><a className="dropdown-item" href="/">Configuracionn</a></li>
+                                    <li><Link className="dropdown-item" to="/">Ayuda</Link></li>
+                                    <li><Link className="dropdown-item" to="/configuracion">Configuracionn</Link></li>
                                     <li><div className="dropdown-divider"> </div></li>
                                     <li><button className="dropdown-item" onClick={cerrarSesion()}>Cerrar sesion</button></li>
                                 </ul>

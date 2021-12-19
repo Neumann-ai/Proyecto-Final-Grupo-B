@@ -27,7 +27,7 @@ export default function App() {
               <Route path="pelicula/:peliId" element={<Pelicula />} />
             </Route>
           </Route>
-          <Route path="/ver"  element={<SeccionIndividual/>}/>
+          <Route path="/ver/:id"  element={<SeccionIndividual/>}/>
         </Routes>
       </Router>
     </div>

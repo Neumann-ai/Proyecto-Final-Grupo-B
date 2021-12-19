@@ -16,9 +16,8 @@ function CardItems({ index, item }) {
     };
     getPeliculas();
   }, [item]);
-  console.log(pelicula);
   return (
-    <Link to={{ pathname: "/ver", pelicula: "funciona" }} className="link-card">
+    <Link to={{ pathname: `/ver/${pelicula._id}` }} className="link-card">
       <div className="card-contenedor">
         <img src={pelicula.imagen} alt="imagen pelicula" />
         <div className="card-info">

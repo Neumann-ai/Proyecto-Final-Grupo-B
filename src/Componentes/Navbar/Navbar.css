@@ -8,6 +8,12 @@
     font-family: "Roboto","sans-serif";
 }
 
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .container-fluid{
     justify-content: space-between;
 }
@@ -24,6 +30,7 @@ nav{
     background-color: var(--main-color-white);
     color: var(--main-color-indigo);
 }
+
 .redes-item i{
         background-color: var(--main-color-white);
         color: var(--main-color-indigo);

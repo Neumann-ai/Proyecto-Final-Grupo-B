@@ -48,6 +48,11 @@ export default function Peliculas(pelis) {
       width: 160,
     },
     {
+      field: "destacad",
+      headerName: "Destacada",
+      width: 60,
+    },
+    {
       field: "accion",
       headerName: "Acciones",
       width: 160,
@@ -65,13 +70,14 @@ export default function Peliculas(pelis) {
   ];
 
   //MOSTRAR PELICULAS EN LISTA
-  const [pelicula, setPelicula] = useState({});
+  const [peliculas, setPeliculas] = useState({});
 
   useEffect(() => {
     const getPeliculas = async () => {
       try {
-        const res = await axios.get("peliculas/" + pelis);
-        setPelicula(res.data);
+        const res = await axios.get(`http://localhost:4001/api/peliculas/`);
+        setPeliculas(res.data);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -92,8 +98,26 @@ export default function Peliculas(pelis) {
       sinopsis: "loremasdadfrfgdgdfgrdgdfgd",
       trailer: "www.youtube.com",
       genero: "Romance",
+      destacada: "no",
     },
   ];
+
+  // const rows2 = peliculas.map((pelicula) => {
+  //   const peliculaActual = {
+  //     id: pelicula._id,
+  //     nombre: pelicula.nombre,
+  //     director: pelicula.director,
+  //     protagonistas: pelicula.protagonistas,
+  //     duracion: pelicula.duracion,
+  //     trailer: pelicula.duracion,
+  //     imagen: pelicula.imagen,
+  //     estreno: pelicula.fecha_de_Estreno,
+  //     sinopsis: pelicula.sinopsis,
+  //     genero: pelicula.genero,
+  //     destacado: pelicula.destacado,
+  //   };
+  //   return peliculaActual;
+  // });
 
   // AGREGAR NUEVA PELICULA
   const [item, setItem] = useState({
@@ -106,16 +130,35 @@ export default function Peliculas(pelis) {
     fecha_de_Estreno: "",
     sinopsis: "",
     genero: "",
+    destacada: false,
+    esPelicula: false,
   });
 
   function handleChange(event) {
-    const { name, value } = event.target;
-    setItem((prevImput) => {
-      return {
-        ...prevImput,
-        [name]: value,
-      };
-    });
+    if (event.target.name === "esPelicula") {
+      setItem((prevImput) => {
+        return {
+          ...prevImput,
+          [event.target.name]: event.target.checked,
+        };
+      });
+    } else if (event.target.name === "destacada") {
+      setItem((prevImput) => {
+        return {
+          ...prevImput,
+          [event.target.name]: event.target.checked,
+        };
+      });
+    } else {
+      const { name, value } = event.target;
+      setItem((prevImput) => {
+        return {
+          ...prevImput,
+          [name]: value,
+        };
+      });
+    }
+    console.log(item);
   }
 
   function agregarItem(event) {
@@ -130,6 +173,8 @@ export default function Peliculas(pelis) {
       fecha_de_Estreno: item.fecha_de_Estreno,
       sinopsis: item.sinopsis,
       genero: item.genero,
+      esPelicula: item.esPelicula,
+      destacada: item.destacada,
     };
     axios.post("/peliculas", nuevoItem);
 
@@ -143,6 +188,8 @@ export default function Peliculas(pelis) {
       fecha_de_Estreno: "",
       sinopsis: "",
       genero: "",
+      esPelicula: false,
+      destacado: false,
     });
   }
 
@@ -301,24 +348,24 @@ export default function Peliculas(pelis) {
                   </div>
                   <div className="item-input">
                     <div className="opcion-tipo">
+                      <label htmlFor="pelicula">¿Es una pelicula?</label>
                       <input
-                        type="radio"
-                        name="tipo"
+                        onChange={handleChange}
+                        type="checkbox"
+                        name="esPelicula"
                         id="pelicula"
-                        value="pelicula"
-                        
                       ></input>
-                      <label htmlFor="pelicula">Pelicula</label>
                     </div>
-                    <div className="opcion-tipo">
+                  </div>
+                  <div className="item-input">
+                    <div className="opcion-destacada">
+                      <label htmlFor="destacada">¿Es destacada?</label>
                       <input
-                        type="radio"
-                        name="tipo"
-                        required
-                        id="serie"
-                        value="serie"
+                        onChange={handleChange}
+                        type="checkbox"
+                        name="destacada"
+                        id="destacada"
                       ></input>
-                      <label htmlFor="serie">Serie</label>
                     </div>
                   </div>
                 </div>
