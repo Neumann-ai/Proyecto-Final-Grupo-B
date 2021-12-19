@@ -25,7 +25,7 @@ export default function Peliculas(pelis) {
     {
       field: "duracion",
       headerName: "Duracion",
-      width: 130,
+      width: 100,
     },
     {
       field: "protagonistas",
@@ -45,12 +45,12 @@ export default function Peliculas(pelis) {
     {
       field: "genero",
       headerName: "Genero",
-      width: 160,
+      width: 120,
     },
     {
       field: "destacad",
       headerName: "Destacada",
-      width: 60,
+      width: 100,
     },
     {
       field: "accion",
@@ -77,7 +77,6 @@ export default function Peliculas(pelis) {
       try {
         const res = await axios.get(`http://localhost:4001/api/peliculas/`);
         setPeliculas(res.data);
-        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -114,10 +113,13 @@ export default function Peliculas(pelis) {
   //     estreno: pelicula.fecha_de_Estreno,
   //     sinopsis: pelicula.sinopsis,
   //     genero: pelicula.genero,
-  //     destacado: pelicula.destacado,
+  //     destacada: pelicula.destacada,
   //   };
   //   return peliculaActual;
   // });
+
+
+
 
   // AGREGAR NUEVA PELICULA
   const [item, setItem] = useState({
@@ -158,7 +160,6 @@ export default function Peliculas(pelis) {
         };
       });
     }
-    console.log(item);
   }
 
   function agregarItem(event) {
@@ -189,7 +190,7 @@ export default function Peliculas(pelis) {
       sinopsis: "",
       genero: "",
       esPelicula: false,
-      destacado: false,
+      destacada: false,
     });
   }
 
@@ -245,8 +246,7 @@ export default function Peliculas(pelis) {
                       type="text"
                       placeholder=" Titanic"
                       id="nombre"
-                      required
-                    ></input>
+                    />
                   </div>
                   <div className="item-input">
                     <label htmlFor="nombre">Direccion</label>
@@ -258,7 +258,7 @@ export default function Peliculas(pelis) {
                       placeholder=" quien sabe"
                       id="director"
                       required
-                    ></input>
+                    />
                   </div>
                   <div className="item-input">
                     <label htmlFor="duracion">Estreno</label>
@@ -270,7 +270,7 @@ export default function Peliculas(pelis) {
                       placeholder="2021"
                       id="estreno"
                       required
-                    ></input>
+                    />
                   </div>
                   <div className="item-input">
                     <label htmlFor="duracion">Duracion</label>
@@ -279,10 +279,10 @@ export default function Peliculas(pelis) {
                       name="duracion"
                       value={item.duracion}
                       type="text"
-                      placeholder="2021"
+                      placeholder="90 minutos"
                       id="duracion"
                       required
-                    ></input>
+                    />
                   </div>
                   <div className="item-input">
                     <label htmlFor="protagonistas">Protagonistas</label>
@@ -294,7 +294,7 @@ export default function Peliculas(pelis) {
                       placeholder="Leonardo Di Caprio"
                       id="protagonistas"
                       required
-                    ></input>
+                    />
                   </div>
                   <div className="item-input">
                     <label htmlFor="sinopsis">Sinopsis</label>
@@ -306,7 +306,7 @@ export default function Peliculas(pelis) {
                       placeholder="bla bla"
                       id="sinopsis"
                       required
-                    ></input>
+                    />
                   </div>
                   <div className="item-input">
                     <label htmlFor="trailer">Trailer</label>
@@ -318,7 +318,7 @@ export default function Peliculas(pelis) {
                       placeholder="Romance"
                       id="trailer"
                       required
-                    ></input>
+                    />
                   </div>
                 </div>
                 <div className="editar-derecha col-6">
