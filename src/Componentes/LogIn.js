@@ -6,26 +6,22 @@ import axios from 'axios';
 
 function LogIn(){
 
-    const [nombre, setNombre] = useState("");
-    const [contrasenia, setContrasenia] = useState("");
-    
-    const onChangeName = (e) =>
-    {
-       setNombre({nombre : e.target.value});
-       console.log(nombre);
-    }
-
-    const onChangePass = (e) =>
-    {
-       setContrasenia({contrasenia : e.target.value});
-       console.log(contrasenia);
-    }
-    
-    
+    const [user, setUser] = useState(
+        {
+            nombre: "",
+            contrasenia:"",
+        });
+    const onChangeUser = e => {
+        const {name, value} = e.target
+        setUser
+        ({
+         ...user, [name]: value
+        })
+    }    
     const LogIn = () => 
     {
         let data = [nombre, contrasenia];
-        axios.post("http://localhost:4001/login", data).then(res => console.log(res));
+        axios.post("http://localhost:4001/login", JSON.parse(data)).then(res => console.log(res));
     }
 
 
@@ -36,10 +32,10 @@ function LogIn(){
                 <label className="logIn-label">Iniciar sesión</label>
                 </div>
                 <div className="col-12">
-                    <input type="text" className="form-control userName" id="userName" placeholder="Apodo" />
+                    <input type="text" className="form-control userName" name='nombre' value={user.nombre} id="userName" placeholder="Apodo" onChange={onChangeUser} />
                 </div>
                 <div className="col-12">
-                    <input type="password" className="form-control userPass" id="userPass" placeholder="Contraseña" />
+                    <input type="password" className="form-control userPass" name='contrasenia' value={user.contrasenia} id="userPass"  placeholder="Contraseña" onChange={onChangeUser}/>
                 </div>
                 <div className="col-12">
                  <Link to={"/"} className="btn btn-primary" onClick={LogIn}>Log In</Link>
