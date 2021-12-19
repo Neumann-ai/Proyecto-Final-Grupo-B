@@ -20,7 +20,7 @@ function LogIn(){
     }    
     const LogIn = () => 
     {
-        let data = [nombre, contrasenia];
+        let data = user;
         axios.post("http://localhost:4001/login", JSON.parse(data)).then(res => console.log(res));
     }
 
