@@ -54,15 +54,25 @@ export default function Pelicula() {
               <input type="text" placeholder="Romance" id="genero"></input>
             </div>
             <div className="item-input">
-              <div className="opcion-tipo">
-                <input type="radio" name="tipo" required id="pelicula"></input>
-                <label htmlFor="pelicula">Pelicula</label>
-              </div>
-              <div className="opcion-tipo">
-                <input type="radio" name="tipo" required id="serie"></input>
-                <label htmlFor="serie">Serie</label>
-              </div>
-            </div>
+                    <div className="opcion-tipo">
+                      <label htmlFor="pelicula">¿Es una pelicula?</label>
+                      <input
+                        type="checkbox"
+                        name="esPelicula"
+                        id="pelicula"
+                      ></input>
+                    </div>
+                  </div>
+                  <div className="item-input">
+                    <div className="opcion-destacada">
+                      <label htmlFor="destacada">¿Es destacada?</label>
+                      <input
+                        type="checkbox"
+                        name="destacada"
+                        id="destacada"
+                      ></input>
+                    </div>
+                  </div>
             <button className="enviar-edicion">Enviar</button>
           </div>
         </form>

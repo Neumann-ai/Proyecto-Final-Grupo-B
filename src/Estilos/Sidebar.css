@@ -4,15 +4,20 @@
 
 .sidebar {
   flex: 1;
-  height:  calc(100vh - 57px);
-  top: 57px;
+  height: calc(100vh - 57px);
   position: sticky;
+  top:0;
+}
+
+.sidebar .link:hover {
+  color: var(--clr-morado1);
 }
 
 .sidebar .sidebar-contenedor {
   padding: 1.5em;
   background: var(--clr-gris);
   height: 100%;
+
 }
 
 .sidebar .sidebar-contenedor .siedbar-menu {
@@ -56,7 +61,7 @@
 }
 
 @media (max-width: 540px) {
-  .sidebar-titulo{
+  .sidebar-titulo {
     display: none;
   }
 

@@ -16,11 +16,21 @@
   margin-right: 0.5em;
 }
 
-.acciones .fas {
+.acciones .fa-user-edit,
+.acciones .fa-trash-alt
+ {
   font-size: 1.5em;
   margin: 0 0.5em;
   cursor: pointer;
   opacity: 0.5;
+}
+
+.acciones .fa-user-edit{
+  color: var(--clr-morado1);
+}
+
+.acciones .fa-trash-alt{
+  color:  #ff0000;
 }
 
 .acciones .fas:hover {

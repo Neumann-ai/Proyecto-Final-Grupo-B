@@ -3,8 +3,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Toaster, toast } from "react-hot-toast";
 
 export default function Peliculas(pelis) {
+  // COLUMNAS
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
@@ -48,7 +50,7 @@ export default function Peliculas(pelis) {
       width: 120,
     },
     {
-      field: "destacad",
+      field: "destacada",
       headerName: "Destacada",
       width: 100,
     },
@@ -62,49 +64,16 @@ export default function Peliculas(pelis) {
             <Link to={"pelicula/" + params.row.id}>
               <i class="fas fa-user-edit"></i>
             </Link>
-            <i class="fas fa-trash-alt"></i>
+            <i
+              class="fas fa-trash-alt"
+              onClick={() => borrarItem(params.row.id)}
+            ></i>
+            <Toaster />
           </div>
         );
       },
     },
   ];
-
-  //MOSTRAR PELICULAS EN LISTA
-  const [peliculas, setPeliculas] = useState([]);
-
-  useEffect(() => {
-    const getPeliculas = async () => {
-      try {
-        const res = await axios.get(`http://localhost:4001/api/peliculas/`);
-        setPeliculas(res.data);
-        console.log(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getPeliculas();
-  }, [pelis]);
-
-  
-   const rows2 = peliculas.map((pelicula) => {
-    const peliculaActual = {
-      id: pelicula._id,
-      nombre: pelicula.nombre,
-      director: pelicula.director,
-      protagonistas: pelicula.protagonistas,
-      duracion: pelicula.duracion,
-      trailer: pelicula.duracion,
-      imagen: pelicula.imagen,
-      estreno: pelicula.fecha_de_Estreno,
-      sinopsis: pelicula.sinopsis,
-      genero: pelicula.genero,
-      destacada: pelicula.destacada,
-    }
-    return peliculaActual;
-  });
-
-
-
 
   // AGREGAR NUEVA PELICULA
   const [item, setItem] = useState({
@@ -163,7 +132,7 @@ export default function Peliculas(pelis) {
       destacada: item.destacada,
     };
     axios.post("/peliculas", nuevoItem);
-
+    getPeliculas();
     setItem({
       nombre: "",
       director: "",
@@ -177,19 +146,75 @@ export default function Peliculas(pelis) {
       esPelicula: false,
       destacada: false,
     });
+    toast.success("Item agregado");
   }
+
+  //MOSTRAR PELICULAS EN LISTA
+  const [peliculas, setPeliculas] = useState([]);
+
+  const getPeliculas = async () => {
+    try {
+      const res = await axios
+        .get(`http://localhost:4001/api/peliculas/`)
+        .then((response) => {
+          setPeliculas(response.data);
+
+          console.log(res.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getPeliculas();
+  }, [pelis]);
+
+  const filas = peliculas.map((pelicula) => {
+    const peliculaActual = {
+      id: pelicula._id,
+      nombre: pelicula.nombre,
+      director: pelicula.director,
+      protagonistas: pelicula.protagonistas,
+      duracion: pelicula.duracion,
+      trailer: pelicula.duracion,
+      imagen: pelicula.imagen,
+      estreno: pelicula.fecha_de_Estreno,
+      sinopsis: pelicula.sinopsis,
+      genero: pelicula.genero,
+      destacada: pelicula.destacada,
+    };
+    return peliculaActual;
+  });
+
+  // BORRAR PELICULA
+  const borrarItem = async (id) => {
+    if (window.confirm("¿Estas seguro de borrar este item?")) {
+      const res = await axios.delete(
+        `http://localhost:4001/api/peliculas/` + id
+      );
+      if (res.status === 200) {
+        console.log("item borrado");
+        toast.success("Item borrado");
+        getPeliculas()
+      }
+
+    }
+  };
 
   return (
     <div className="lista-peliculas">
       <DataGrid
         className="dataGrid"
         disableSelectionOnClick
-        rows={rows2}
+        rows={filas}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
+
+      {/* BOTON AGREGAR PELICULA */}
       <button
         type="button"
         class="agregar-pelicula"
@@ -198,6 +223,8 @@ export default function Peliculas(pelis) {
       >
         Agregar Pelicula
       </button>
+
+      {/* MODAL PARA AGREGAR PELICULA */}
       <div
         class="modal fade"
         id="exampleModal"
@@ -220,6 +247,7 @@ export default function Peliculas(pelis) {
               ></button>
             </div>
             <div class="modal-body">
+              {/* FORMULARIO AGREGAR PELICULA */}
               <form className="row">
                 <div className="editar-izquierda col-6">
                   <div className="item-input">
@@ -355,6 +383,7 @@ export default function Peliculas(pelis) {
                   </div>
                 </div>
               </form>
+              <Toaster />
             </div>
             <div class="modal-footer">
               <button

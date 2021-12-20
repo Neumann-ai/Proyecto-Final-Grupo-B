@@ -37,7 +37,7 @@ function Navbar() {
                                 </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><Link className="dropdown-item" to="/">Ayuda</Link></li>
-                                    <li><Link className="dropdown-item" to="/configuracion">Configuracionn</Link></li>
+                                    <li><Link className="dropdown-item" to="/configuracion">Configuracion</Link></li>
                                     <li><div className="dropdown-divider"> </div></li>
                                     <li><button className="dropdown-item" onClick={cerrarSesion()}>Cerrar sesion</button></li>
                                 </ul>
