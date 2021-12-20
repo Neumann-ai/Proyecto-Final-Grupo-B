@@ -70,13 +70,14 @@ export default function Peliculas(pelis) {
   ];
 
   //MOSTRAR PELICULAS EN LISTA
-  const [peliculas, setPeliculas] = useState({});
+  const [peliculas, setPeliculas] = useState([]);
 
   useEffect(() => {
     const getPeliculas = async () => {
       try {
         const res = await axios.get(`http://localhost:4001/api/peliculas/`);
         setPeliculas(res.data);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -84,39 +85,23 @@ export default function Peliculas(pelis) {
     getPeliculas();
   }, [pelis]);
 
-  const rows = [
-    {
-      id: 1,
-      imagen: "https://picsum.photos/id/237/200/300",
-      nombre: "Snow",
-      director: "nose",
-      estreno: "2021",
-      duracion: "100min",
-      protagonistas:
-        "Leonardo Di Caprio,Leonardo Di Caprio,Leonardo Di Caprio,Leonardo Di Caprio,Leonardo Di Caprio",
-      sinopsis: "loremasdadfrfgdgdfgrdgdfgd",
-      trailer: "www.youtube.com",
-      genero: "Romance",
-      destacada: "no",
-    },
-  ];
-
-  // const rows2 = peliculas.map((pelicula) => {
-  //   const peliculaActual = {
-  //     id: pelicula._id,
-  //     nombre: pelicula.nombre,
-  //     director: pelicula.director,
-  //     protagonistas: pelicula.protagonistas,
-  //     duracion: pelicula.duracion,
-  //     trailer: pelicula.duracion,
-  //     imagen: pelicula.imagen,
-  //     estreno: pelicula.fecha_de_Estreno,
-  //     sinopsis: pelicula.sinopsis,
-  //     genero: pelicula.genero,
-  //     destacada: pelicula.destacada,
-  //   };
-  //   return peliculaActual;
-  // });
+  
+   const rows2 = peliculas.map((pelicula) => {
+    const peliculaActual = {
+      id: pelicula._id,
+      nombre: pelicula.nombre,
+      director: pelicula.director,
+      protagonistas: pelicula.protagonistas,
+      duracion: pelicula.duracion,
+      trailer: pelicula.duracion,
+      imagen: pelicula.imagen,
+      estreno: pelicula.fecha_de_Estreno,
+      sinopsis: pelicula.sinopsis,
+      genero: pelicula.genero,
+      destacada: pelicula.destacada,
+    }
+    return peliculaActual;
+  });
 
 
 
@@ -199,7 +184,7 @@ export default function Peliculas(pelis) {
       <DataGrid
         className="dataGrid"
         disableSelectionOnClick
-        rows={rows}
+        rows={rows2}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}

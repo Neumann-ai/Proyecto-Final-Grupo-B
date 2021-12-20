@@ -152,6 +152,11 @@
     min-width: 30%;
     height: 30%;
   }
+
+  .contenedor-principal .flecha-izquierda,
+.contenedor-principal .flecha-derecha{
+  font-size: inherit;
+}
 }
 
 @media (min-width: 1400px) {
