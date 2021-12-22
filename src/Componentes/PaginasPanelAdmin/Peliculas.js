@@ -23,7 +23,7 @@ export default function Peliculas(pelis) {
       },
     },
     { field: "director", headerName: "Director", width: 100 },
-    { field: "estreno", headerName: "Estreno", width: 100 },
+    { field: "estreno", headerName: "Estreno", width: 80 },
     {
       field: "duracion",
       headerName: "Duracion",
@@ -32,17 +32,17 @@ export default function Peliculas(pelis) {
     {
       field: "protagonistas",
       headerName: "Protagonistas",
-      width: 160,
+      width: 150,
     },
     {
       field: "sinopsis",
       headerName: "Sinopsis",
-      width: 160,
+      width: 140,
     },
     {
       field: "trailer",
       headerName: "Trailer",
-      width: 160,
+      width: 140,
     },
     {
       field: "genero",
@@ -154,12 +154,10 @@ export default function Peliculas(pelis) {
 
   const getPeliculas = async () => {
     try {
-      const res = await axios
+      await axios
         .get(`http://localhost:4001/api/peliculas/`)
         .then((response) => {
           setPeliculas(response.data);
-
-          console.log(res.data);
         });
     } catch (err) {
       console.log(err);
@@ -177,7 +175,7 @@ export default function Peliculas(pelis) {
       director: pelicula.director,
       protagonistas: pelicula.protagonistas,
       duracion: pelicula.duracion,
-      trailer: pelicula.duracion,
+      trailer: pelicula.trailer,
       imagen: pelicula.imagen,
       estreno: pelicula.fecha_de_Estreno,
       sinopsis: pelicula.sinopsis,
@@ -196,9 +194,8 @@ export default function Peliculas(pelis) {
       if (res.status === 200) {
         console.log("item borrado");
         toast.success("Item borrado");
-        getPeliculas()
+        getPeliculas();
       }
-
     }
   };
 

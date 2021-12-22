@@ -1,33 +1,25 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import CardItems from "./CardItems";
-import "../Estilos/EstilosCard.css"
+import "../Estilos/EstilosCard.css";
 
 function ListaCards({ lista }) {
-  const listRef = useRef();
-  const [contador, setContador] = useState(0);
+  const [scrollX, setScrollX] = useState(-500);
 
-  const handleClick = (direccion) => {
-    const anchoPantalla = listRef.current.offsetWidth / 5;
-
-    if (direccion === "left") {
-      setContador(contador - 1 < 0 ? 0 : contador - 1);
-      listRef.current.style.transform = `translateX(-${
-        contador * anchoPantalla
-      }px)`;
+  const handleLeft = () => {
+    let x = scrollX + Math.round(window.innerWidth / 2);
+    if (x > 0) {
+      x = 0;
     }
+    setScrollX(x);
+  };
 
-    if (direccion === "right") {
-      console.log(listRef.current.offsetWidth);
-      setContador(
-        contador * anchoPantalla > listRef.current.offsetWidth
-          ? contador
-          : contador + 1
-      );
-
-      listRef.current.style.transform = `translateX(-${
-        contador * anchoPantalla
-      }px)`;
+  const handleRight = () => {
+    let x = scrollX - Math.round(window.innerWidth / 2);
+    let listaWidth = lista.contenido.length * 250;
+    if ((window.innerWidth - listaWidth) > x) {
+      x = window.innerWidth - listaWidth;
     }
+    setScrollX(x);
   };
 
   return (
@@ -36,12 +28,12 @@ function ListaCards({ lista }) {
       <button
         id="flecha-izquierda"
         className="flecha-izquierda"
-        onClick={() => handleClick("left")}
+        onClick={handleLeft}
       >
         <i className="fas fa-caret-left"></i>
       </button>
       <section className="contenedor-lista-items">
-        <section className="lista-items" ref={listRef}>
+        <section className="lista-items" style={{ left: scrollX }}>
           {lista.contenido.map((item, index) => (
             <CardItems item={item} index={index} />
           ))}
@@ -50,7 +42,7 @@ function ListaCards({ lista }) {
       <button
         id="flecha-derecha"
         className="flecha-derecha"
-        onClick={() => handleClick("right")}
+        onClick={handleRight}
       >
         <i className="fas fa-caret-right"></i>
       </button>

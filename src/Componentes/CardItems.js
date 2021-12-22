@@ -22,7 +22,6 @@ function CardItems({ index, item }) {
         <img src={pelicula.imagen} alt="imagen pelicula" />
         <div className="card-info">
           <p className="card-titulo">{pelicula.nombre}</p>
-          <p className="card-estreno">{pelicula.fecha_de_Estreno} </p>
         </div>
       </div>
     </Link>

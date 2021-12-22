@@ -3,6 +3,8 @@ import ListaCards from "./Componentes/ListaCards";
 import axios from "axios";
 import Footer from "./Componentes/Footer/Footer";
 import Navbar from "./Componentes/Navbar/Navbar";
+import Cargando from "./Imagenes/icono-loading.gif";
+
 export default function Home({ tipo }) {
   const [listas, setListas] = useState([]);
 
@@ -19,15 +21,21 @@ export default function Home({ tipo }) {
     };
     getListaRandom();
   }, [tipo]);
-
+  console.log(listas);
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <h2>Aqui va el slider</h2>
       {listas.map((lista) => (
         <ListaCards lista={lista} />
       ))}
       <Footer />
+
+      {listas.length <= 0 && (
+        <div className="loading">
+          <img src={Cargando} alt="cargando-icono" />
+        </div>
+      )}
     </div>
   );
 }
