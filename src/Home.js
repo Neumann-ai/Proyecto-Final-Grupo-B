@@ -3,7 +3,7 @@ import ListaCards from "./Componentes/ListaCards";
 import axios from "axios";
 import Footer from "./Componentes/Footer/Footer";
 import Navbar from "./Componentes/Navbar/Navbar";
-import Cargando from "./Imagenes/icono-loading.gif";
+import Cargando from "./Imagenes/Cargando-icon.svg";
 
 export default function Home({ tipo }) {
   const [listas, setListas] = useState([]);

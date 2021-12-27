@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Cargando from "../Imagenes/Cargando-icon.svg";
 
 function CardItems({ index, item }) {
   const [pelicula, setPelicula] = useState({});
@@ -19,7 +20,7 @@ function CardItems({ index, item }) {
   return (
     <Link to={{ pathname: `/ver/${pelicula._id}` }} className="link-card">
       <div className="card-contenedor">
-        <img src={pelicula.imagen} alt="imagen pelicula" />
+        <img src={pelicula.imagen || Cargando} alt="imagen pelicula" />
         <div className="card-info">
           <p className="card-titulo">{pelicula.nombre}</p>
         </div>

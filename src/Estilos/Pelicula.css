@@ -45,12 +45,14 @@ figure img {
 }
 
 button.enviar-edicion {
-  margin-top: 0.5em;
   border: none;
   border-radius: 5px;
-  color: var(--clr-gris);
+  color: #fff;
   background-color: var(--clr-morado1);
   position: relative;
   bottom: 0;
-  padding-right: 1em 2em;
+  padding: 0.5em 2em;
+  width: 50%;
+  margin: 1em auto ;
+
 }

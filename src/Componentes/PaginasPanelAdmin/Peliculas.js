@@ -60,10 +60,13 @@ export default function Peliculas(pelis) {
       width: 160,
       renderCell: (params) => {
         return (
+          // BOTON EDITAR
           <div className="acciones">
             <Link to={"pelicula/" + params.row.id}>
               <i class="fas fa-user-edit"></i>
             </Link>
+
+            {/* BOTON BORRAR */}
             <i
               class="fas fa-trash-alt"
               onClick={() => borrarItem(params.row.id)}
@@ -114,6 +117,7 @@ export default function Peliculas(pelis) {
         };
       });
     }
+    
   }
 
   function agregarItem(event) {
@@ -147,6 +151,7 @@ export default function Peliculas(pelis) {
       destacada: false,
     });
     toast.success("Item agregado");
+    getPeliculas()
   }
 
   //MOSTRAR PELICULAS EN LISTA
