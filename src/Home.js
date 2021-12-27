@@ -21,7 +21,6 @@ export default function Home({ tipo }) {
     };
     getListaRandom();
   }, [tipo]);
-  console.log(listas);
   return (
     <div>
       <Navbar />
