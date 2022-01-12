@@ -78,5 +78,33 @@ li a {
     color: var(--main-color-white);
 }
 
+.searchBar{
+    position: relative;
+}
+
+.dataResultado{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    box-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 0.2em;  
+}
+
+
+.dataResultado .busqueda{
+    background-color: #fff;
+    cursor: pointer;
+    transition: all ease;
+    padding: 0.5em;
+    display: block;
+    text-decoration: none;
+    width: 208px;
+}
+
+.dataResultado a:hover{
+    background-color: rgb(228, 228, 228);
+}
+
 @media only screen and (min-width:529){
 }

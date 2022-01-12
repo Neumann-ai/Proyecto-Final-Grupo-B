@@ -10,7 +10,7 @@ body {
 }
 
 .container-adminpanel {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   color: white;
 }

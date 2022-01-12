@@ -29,6 +29,10 @@ form {
   margin-top: 1em;
 }
 
+.item-input .elegir input{
+  margin: 0.5em;
+}
+
 .item-input input {
   background: transparent;
   border: none;

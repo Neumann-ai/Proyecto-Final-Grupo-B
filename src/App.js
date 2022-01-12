@@ -4,9 +4,11 @@ import Home from "./Home";
 import Configuracion from "./Componentes/Configuracion";
 import MisDatos from "./Componentes/PaginasPanelAdmin/MisDatos";
 import Peliculas from "./Componentes/PaginasPanelAdmin/Peliculas";
+import Pelicula from "./Componentes/PaginasPanelAdmin/Pelicula";
+import ListasPeliculas from "./Componentes/PaginasPanelAdmin/ListasPeliculas";
+import ListaPeliculasEditar from "./Componentes/PaginasPanelAdmin/ListaPeliculasEditar";
 import UsuariosLista from "./Componentes/PaginasPanelAdmin/UsuariosLista";
 import User from "./Componentes/PaginasPanelAdmin/User";
-import Pelicula from "./Componentes/PaginasPanelAdmin/Pelicula";
 import SeccionIndividual from "./Componentes/SeccionIndividual";
 
 export default function App() {
@@ -25,6 +27,9 @@ export default function App() {
             </Route>
             <Route path="peliculas" element={<Peliculas />}>
               <Route path="pelicula/:peliId" element={<Pelicula />} />
+            </Route>
+            <Route path="listapeliculas" element={<ListasPeliculas />}>
+              <Route path="listapelicula/:listaId" element={<ListaPeliculasEditar/>} />
             </Route>
           </Route>
           <Route path="/ver/:id"  element={<SeccionIndividual/>}/>

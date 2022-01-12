@@ -26,6 +26,11 @@ export default function Sidebar() {
                   <i className="fas fa-film"></i> <p>Peliculas</p>
                 </li>
               </NavLink>
+              <NavLink to="listapeliculas" className="link">
+                <li className="sidebar-item">
+                  <i className="fas fa-film"></i> <p>Lista de Peliculas</p>
+                </li>
+              </NavLink>
             </ul>
           </div>
         </div>

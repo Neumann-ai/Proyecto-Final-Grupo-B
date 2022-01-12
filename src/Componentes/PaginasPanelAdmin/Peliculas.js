@@ -117,7 +117,6 @@ export default function Peliculas(pelis) {
         };
       });
     }
-    
   }
 
   function agregarItem(event) {
@@ -151,7 +150,7 @@ export default function Peliculas(pelis) {
       destacada: false,
     });
     toast.success("Item agregado");
-    getPeliculas()
+    getPeliculas();
   }
 
   //MOSTRAR PELICULAS EN LISTA
@@ -173,7 +172,8 @@ export default function Peliculas(pelis) {
     getPeliculas();
   }, [pelis]);
 
-  const filas = peliculas.map((pelicula) => {
+
+  const filas =  peliculas.map((pelicula) => {
     const peliculaActual = {
       id: pelicula._id,
       nombre: pelicula.nombre,
@@ -188,7 +188,7 @@ export default function Peliculas(pelis) {
       destacada: pelicula.destacada,
     };
     return peliculaActual;
-  });
+  })
 
   // BORRAR PELICULA
   const borrarItem = async (id) => {
