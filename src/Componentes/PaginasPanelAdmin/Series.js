@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 
-export default function Peliculas(pelis) {
+export default function Series(pelis) {
   // COLUMNAS
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -62,7 +62,7 @@ export default function Peliculas(pelis) {
         return (
           // BOTON EDITAR
           <div className="acciones">
-            <Link to={"pelicula/" + params.row.id}>
+            <Link to={"serie/" + params.row.id}>
               <i class="fas fa-user-edit"></i>
             </Link>
 
@@ -78,7 +78,7 @@ export default function Peliculas(pelis) {
     },
   ];
 
-  // AGREGAR NUEVA PELICULA
+  // AGREGAR NUEVA SERIE
   const [item, setItem] = useState({
     nombre: "",
     director: "",
@@ -135,7 +135,7 @@ export default function Peliculas(pelis) {
       destacada: item.destacada,
     };
     axios.post("/peliculas", nuevoItem);
-    getPeliculas();
+    getSeries();
     setItem({
       nombre: "",
       director: "",
@@ -150,18 +150,18 @@ export default function Peliculas(pelis) {
       destacada: false,
     });
     toast.success("Item agregado");
-    getPeliculas();
+    getSeries();
   }
 
   //MOSTRAR PELICULAS EN LISTA
-  const [peliculas, setPeliculas] = useState([]);
+  const [series, setSeries] = useState([]);
 
-  const getPeliculas = async () => {
+  const getSeries = async () => {
     try {
       await axios
         .get(`http://localhost:4001/api/peliculas/`)
         .then((response) => {
-          setPeliculas(response.data);
+          setSeries(response.data);
         });
     } catch (err) {
       console.log(err);
@@ -169,33 +169,30 @@ export default function Peliculas(pelis) {
   };
 
   useEffect(() => {
-    getPeliculas();
+    getSeries();
   }, [pelis]);
 
   
-  const sonPeliculas = peliculas.filter(pelicula => pelicula.esPelicula === true)
+  const sonSeries = series.filter(serie => serie.esPelicula === false)
 
-
-
-
-  const filas =  sonPeliculas.map((pelicula) => {
-    const peliculaActual = {
-      id: pelicula._id,
-      nombre: pelicula.nombre,
-      director: pelicula.director,
-      protagonistas: pelicula.protagonistas,
-      duracion: pelicula.duracion,
-      trailer: pelicula.trailer,
-      imagen: pelicula.imagen,
-      estreno: pelicula.fecha_de_Estreno,
-      sinopsis: pelicula.sinopsis,
-      genero: pelicula.genero,
-      destacada: pelicula.destacada,
+  const filas =  sonSeries.map((serie) => {
+    const serieActual = {
+      id: serie._id,
+      nombre: serie.nombre,
+      director: serie.director,
+      protagonistas: serie.protagonistas,
+      duracion: serie.duracion,
+      trailer: serie.trailer,
+      imagen: serie.imagen,
+      estreno: serie.fecha_de_Estreno,
+      sinopsis: serie.sinopsis,
+      genero: serie.genero,
+      destacada: serie.destacada,
     };
-    return peliculaActual;
+    return serieActual;
   })
 
-  // BORRAR PELICULA
+  // BORRAR SERIE
   const borrarItem = async (id) => {
     if (window.confirm("¿Estas seguro de borrar este item?")) {
       const res = await axios.delete(
@@ -204,7 +201,7 @@ export default function Peliculas(pelis) {
       if (res.status === 200) {
         console.log("item borrado");
         toast.success("Item borrado");
-        getPeliculas();
+        getSeries();
       }
     }
   };
@@ -221,17 +218,17 @@ export default function Peliculas(pelis) {
         checkboxSelection
       />
 
-      {/* BOTON AGREGAR PELICULA */}
+      {/* BOTON AGREGAR SERIE */}
       <button
         type="button"
         class="agregar-pelicula"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Agregar Pelicula
+        Agregar Serie
       </button>
 
-      {/* MODAL PARA AGREGAR PELICULA */}
+      {/* MODAL PARA AGREGAR SERIE */}
       <div
         class="modal fade"
         id="exampleModal"
@@ -254,7 +251,7 @@ export default function Peliculas(pelis) {
               ></button>
             </div>
             <div class="modal-body">
-              {/* FORMULARIO AGREGAR PELICULA */}
+              {/* FORMULARIO AGREGAR SERIE */}
               <form className="row">
                 <div className="editar-izquierda col-6">
                   <div className="item-input">
@@ -374,7 +371,6 @@ export default function Peliculas(pelis) {
                         type="checkbox"
                         name="esPelicula"
                         id="pelicula"
-                        checked
                       ></input>
                     </div>
                   </div>

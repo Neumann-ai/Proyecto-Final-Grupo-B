@@ -94,7 +94,6 @@ export default function Pelicula() {
                   type="radio"
                   value="pelicula"
                   id="pelicula"
-                  checked
                 />
                 <label htmlFor="pelicula">Pelicula</label>
               </div>
@@ -105,6 +104,7 @@ export default function Pelicula() {
                   type="radio"
                   value="serie"
                   id="serie"
+                  checked
                 />
                 <label htmlFor="serie">Serie</label>
               </div>

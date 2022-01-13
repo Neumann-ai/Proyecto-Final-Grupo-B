@@ -5,22 +5,22 @@ import axios from "axios";
 
 export default function Pelicula() {
   //MUESTRA EN INPUTS INFORMACION DE LA PELICULA SLECCIONADA PARA EDITAR
-  let { peliId } = useParams();
+  let { serieId } = useParams();
 
-  const [pelicula, setPelicula] = useState([]);
+  const [serie, setSerie] = useState([]);
   useEffect(() => {
-    async function getPelicula() {
+    async function getSerie() {
       try {
-        const pelicula = await axios.get(
-          `http://localhost:4001/api/peliculas/${peliId}`
+        const serie = await axios.get(
+          `http://localhost:4001/api/peliculas/${serieId}`
         );
-        setPelicula(pelicula.data);
+        setSerie(serie.data);
       } catch (err) {
         console.log("messaje", err);
       }
     }
-    getPelicula();
-  }, [peliId]);
+    getSerie();
+  }, [serieId]);
 
   //ACTUALIZAR INFORMACION
 
@@ -78,7 +78,7 @@ export default function Pelicula() {
       esPelicula: updatedItem.esPelicula,
       destacada: updatedItem.destacada,
     };
-    axios.put(`/peliculas/${peliId}`, informacionActualizada);
+    axios.put(`/peliculas/${serieId}`, informacionActualizada);
     window.location.reload()
   }
 
@@ -99,7 +99,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="nombre"
                 type="text"
-                defaultValue={pelicula.nombre}
+                defaultValue={serie.nombre}
                 id="nombre"
               />
             </div>
@@ -109,7 +109,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="estreno"
                 type="text"
-                defaultValue={pelicula.fecha_de_Estreno}
+                defaultValue={serie.fecha_de_Estreno}
                 id="estreno"
               />
             </div>
@@ -119,7 +119,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="duracion"
                 type="text"
-                defaultValue={pelicula.duracion}
+                defaultValue={serie.duracion}
                 id="duracion"
               />
             </div>
@@ -129,7 +129,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="protagonistas"
                 type="text"
-                defaultValue={pelicula.protagonistas}
+                defaultValue={serie.protagonistas}
                 id="protagonistas"
               />
             </div>
@@ -139,7 +139,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="sinopsis"
                 type="text"
-                defaultValue={pelicula.sinopsis}
+                defaultValue={serie.sinopsis}
                 id="sinopsis"
               />
             </div>
@@ -149,7 +149,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="trailer"
                 type="url"
-                defaultValue={pelicula.trailer}
+                defaultValue={serie.trailer}
                 id="trailer"
               />
             </div>
@@ -161,7 +161,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="imagen"
                 type="url"
-                defaultValue={pelicula.imagen}
+                defaultValue={serie.imagen}
                 id="imagen"
               />
             </div>
@@ -171,7 +171,7 @@ export default function Pelicula() {
                 onChange={handleUpdate}
                 name="genero"
                 type="text"
-                defaultValue={pelicula.genero}
+                defaultValue={serie.genero}
                 id="genero"
               />
             </div>

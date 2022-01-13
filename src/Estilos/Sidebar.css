@@ -6,7 +6,7 @@
   flex: 1;
   height: calc(100vh - 57px);
   position: sticky;
-  top:57px;
+  top: 57px;
 }
 
 .sidebar .link:hover {
@@ -17,7 +17,6 @@
   padding: 1.5em;
   background: var(--clr-gris);
   height: 100%;
-
 }
 
 .sidebar .sidebar-contenedor .siedbar-menu {
@@ -46,6 +45,13 @@
 .sidebar-item p {
   margin-left: 0.5em;
   margin-bottom: 0;
+}
+
+.separador {
+  height: 5px;
+  width: 100%;
+  color: #fff;
+  margin: 1em 0;
 }
 
 @media (max-width: 940px) {

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 
-export default function ListasSeries(Lista) {
+export default function ListasPeliculas(Lista) {
   // COLUMNAS
   const columns = [
     { field: "id", headerName: "ID", width: 200 },
@@ -29,7 +29,7 @@ export default function ListasSeries(Lista) {
         return (
           // BOTON EDITAR
           <div className="acciones">
-            <Link to={"listapelicula/" + params.row.id}>
+            <Link to={"listaseries/" + params.row.id}>
               <i class="fas fa-user-edit"></i>
             </Link>
 
@@ -45,7 +45,7 @@ export default function ListasSeries(Lista) {
     },
   ];
 
-  // AGREGAR NUEVA LISTA
+  // AGREGAR NUEVA PELICULA
   const [item, setItem] = useState({
     nombre: "",
     tipo: "",
@@ -102,10 +102,11 @@ export default function ListasSeries(Lista) {
     getListas();
   }, [Lista]);
 
-  const listasPeliculas = listas.filter(serie => serie.tipo === "pelicula")
+
+  const listasSeries = listas.filter(serie => serie.tipo === "serie")
 
 
-  const filas = listasPeliculas.map((lista) => {
+  const filas = listasSeries.map((lista) => {
     const listaActual = {
       id: lista._id,
       nombre: lista.nombre,
@@ -224,7 +225,6 @@ export default function ListasSeries(Lista) {
                         type="radio"
                         value="pelicula"
                         id="esPelicula"
-                        checked
                       />
                       <label htmlFor="esPelicula">Peliculas</label>
                     </div>
@@ -235,7 +235,7 @@ export default function ListasSeries(Lista) {
                         type="radio"
                         value="serie"
                         id="esSerie"
-                        
+                        checked
                       />
                       <label htmlFor="esSerie">Series</label>
                     </div>

@@ -9,7 +9,7 @@ export default function Sidebar() {
         <div className="sidebar-contenedor">
           <div className="sidebar-menu">
             <h3 className="sidebar-titulo">Panel</h3>
-            
+
             <ul>
               <NavLink to="misdatos" className="link">
                 <li className="sidebar-item">
@@ -21,6 +21,7 @@ export default function Sidebar() {
                   <i className="fas fa-users"></i> <p>Usuarios</p>
                 </li>
               </NavLink>
+              <hr />{" "}
               <NavLink to="peliculas" className="link">
                 <li className="sidebar-item">
                   <i className="fas fa-film"></i> <p>Peliculas</p>
@@ -28,7 +29,18 @@ export default function Sidebar() {
               </NavLink>
               <NavLink to="listapeliculas" className="link">
                 <li className="sidebar-item">
-                  <i className="fas fa-film"></i> <p>Lista de Peliculas</p>
+                <i class="fas fa-list"></i> <p>Categorias</p>
+                </li>
+              </NavLink>
+              <hr />
+              <NavLink to="series" className="link">
+                <li className="sidebar-item">
+                  <i class="fas fa-video"></i> <p>Series</p>
+                </li>
+              </NavLink>
+              <NavLink to="listaseries" className="link">
+                <li className="sidebar-item">
+                <i class="fas fa-list"></i> <p>Categorias</p>
                 </li>
               </NavLink>
             </ul>
