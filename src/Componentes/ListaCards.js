@@ -18,15 +18,14 @@ function ListaCards({ lista }) {
     console.log(lista.contenido.length * 150);
 
     if (window.innerWidth > 900) {
-      
       let listaWidth = lista.contenido.length * 250;
-      if ((window.innerWidth - listaWidth) > x) {
+      if (window.innerWidth - listaWidth > x) {
         x = window.innerWidth - listaWidth;
       }
       setScrollX(x);
-    } else{
+    } else {
       let listaWidth = lista.contenido.length * 150;
-      if ((window.innerWidth - listaWidth) > x) {
+      if (window.innerWidth - listaWidth > x) {
         x = window.innerWidth - listaWidth;
       }
       setScrollX(x);
@@ -45,9 +44,9 @@ function ListaCards({ lista }) {
       </button>
       <section className="contenedor-lista-items">
         <section className="lista-items" style={{ left: scrollX }}>
-          {lista.contenido.map((item, index) => (
+          { lista.contenido.length > 1 ?  lista.contenido.map((item, index) => (
             <CardItems item={item} index={index} />
-          ))}
+          )) : ""}
         </section>
       </section>
       <button

@@ -13,7 +13,7 @@ export default function Pelicula() {
       try {
         const pelicula = await axios.get(
           `http://localhost:4001/api/peliculas/${peliId}`
-        );
+        )
         setPelicula(pelicula.data);
       } catch (err) {
         console.log("messaje", err);
@@ -183,7 +183,6 @@ export default function Pelicula() {
                   type="checkbox"
                   name="esPelicula"
                   id="pelicula"
-                  checked
                 />
               </div>
             </div>

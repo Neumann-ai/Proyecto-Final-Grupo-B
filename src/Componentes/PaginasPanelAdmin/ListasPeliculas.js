@@ -102,8 +102,7 @@ export default function ListasSeries(Lista) {
     getListas();
   }, [Lista]);
 
-  const listasPeliculas = listas.filter(serie => serie.tipo === "pelicula")
-
+  const listasPeliculas = listas.filter((film) => film.tipo === "pelicula");
 
   const filas = listasPeliculas.map((lista) => {
     const listaActual = {
@@ -224,7 +223,6 @@ export default function ListasSeries(Lista) {
                         type="radio"
                         value="pelicula"
                         id="esPelicula"
-                        checked
                       />
                       <label htmlFor="esPelicula">Peliculas</label>
                     </div>
@@ -235,7 +233,6 @@ export default function ListasSeries(Lista) {
                         type="radio"
                         value="serie"
                         id="esSerie"
-                        
                       />
                       <label htmlFor="esSerie">Series</label>
                     </div>
@@ -262,7 +259,6 @@ export default function ListasSeries(Lista) {
             </div>
           </div>
         </div>
-        
       </div>
       <Outlet />
     </div>

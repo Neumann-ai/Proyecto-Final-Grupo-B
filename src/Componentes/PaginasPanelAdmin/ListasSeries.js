@@ -186,7 +186,7 @@ export default function ListasPeliculas(Lista) {
                       name="nombre"
                       value={item.nombre}
                       type="text"
-                      placeholder="Peliculas de Drama"
+                      placeholder="Series de Drama"
                       id="nombre"
                     />
                   </div>

@@ -8,20 +8,37 @@ export default function Pelicula() {
   let { listaId } = useParams();
 
   const [lista, setLista] = useState([]);
+  // useEffect(() => {
+  //   const getListas = async () => {
+  //     try {
+  //       await axios
+  //         .get(`http://localhost:4001/api/listapeliculas/${listaId}`)
+  //         .then((response) => {
+  //           setLista(response.data);
+  //         });
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getListas();
+  // }, [listaId]);
+
+
   useEffect(() => {
-    const getListas = async () => {
+    async function getListas() {
       try {
-        await axios
-          .get(`http://localhost:4001/api/listapeliculas/${listaId}`)
-          .then((response) => {
-            setLista(response.data);
-          });
+        const lista = await axios.get(
+          `http://localhost:4001/api/listapeliculas/${listaId}`
+        )
+        setLista(lista.data);
       } catch (err) {
-        console.log(err);
+        console.log("messaje", err);
       }
-    };
+    }
     getListas();
   }, [listaId]);
+
+console.log(lista);
 
   //ACTUALIZAR INFORMACION
 
@@ -94,7 +111,6 @@ export default function Pelicula() {
                   type="radio"
                   value="pelicula"
                   id="pelicula"
-                  checked
                 />
                 <label htmlFor="pelicula">Pelicula</label>
               </div>

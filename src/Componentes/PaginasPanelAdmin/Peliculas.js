@@ -172,13 +172,11 @@ export default function Peliculas(pelis) {
     getPeliculas();
   }, [pelis]);
 
-  
-  const sonPeliculas = peliculas.filter(pelicula => pelicula.esPelicula === true)
+  const sonPeliculas = peliculas.filter(
+    (pelicula) => pelicula.esPelicula === true
+  );
 
-
-
-
-  const filas =  sonPeliculas.map((pelicula) => {
+  const filas = sonPeliculas.map((pelicula) => {
     const peliculaActual = {
       id: pelicula._id,
       nombre: pelicula.nombre,
@@ -193,7 +191,7 @@ export default function Peliculas(pelis) {
       destacada: pelicula.destacada,
     };
     return peliculaActual;
-  })
+  });
 
   // BORRAR PELICULA
   const borrarItem = async (id) => {
@@ -374,7 +372,6 @@ export default function Peliculas(pelis) {
                         type="checkbox"
                         name="esPelicula"
                         id="pelicula"
-                        checked
                       ></input>
                     </div>
                   </div>

@@ -29,7 +29,7 @@ export default function Sidebar() {
               </NavLink>
               <NavLink to="listapeliculas" className="link">
                 <li className="sidebar-item">
-                <i class="fas fa-list"></i> <p>Categorias</p>
+                <i class="fas fa-list"></i> <p>Categorias de Peliculas</p>
                 </li>
               </NavLink>
               <hr />
@@ -40,7 +40,7 @@ export default function Sidebar() {
               </NavLink>
               <NavLink to="listaseries" className="link">
                 <li className="sidebar-item">
-                <i class="fas fa-list"></i> <p>Categorias</p>
+                <i class="fas fa-list"></i> <p>Categorias de Series</p>
                 </li>
               </NavLink>
             </ul>
