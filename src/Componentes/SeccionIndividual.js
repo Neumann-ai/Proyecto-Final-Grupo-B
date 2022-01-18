@@ -27,6 +27,7 @@ export default function SeccionIndividual() {
       <Navbar />
       <section className="container-sm contenedor-pelicula">
         <figure className="header-pelicula">
+          <div className="degrade"></div>
           <img src={pelicula.imagen} alt="" />
         </figure>
         <div className="contenedor-texto row">
