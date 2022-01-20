@@ -149,17 +149,9 @@
     padding-left: 0.2em;
   }
 
-  .btn-agregar-item {
-    width: 150px;
-    height: 30%;
-    background: var(--clr-morado3);
-    border: 0.8em solid var(--clr-gris);
-    color: var(--clr-gris);
-  }
-
   .link-card {
     width: 150px;
-    height: 30%;
+    height: 300px;
   }
 
   .contenedor-principal .flecha-izquierda,
