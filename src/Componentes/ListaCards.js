@@ -15,7 +15,6 @@ function ListaCards({ lista }) {
 
   const handleRight = () => {
     let x = scrollX - Math.round(window.innerWidth / 2);
-    console.log(lista.contenido.length * 150);
 
     if (window.innerWidth > 900) {
       let listaWidth = lista.contenido.length * 250;

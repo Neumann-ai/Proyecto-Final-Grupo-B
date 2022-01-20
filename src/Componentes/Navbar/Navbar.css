@@ -31,6 +31,18 @@ nav{
     color: var(--main-color-indigo);
 }
 
+
+.navbar-collapse{
+    flex-grow:0;
+}
+
+.dropdown-menu[data-bs-popper],
+.dropdown-menu,
+.dropdown-menu.show{
+    right: 0;
+    left: initial;
+}
+
 .redes-item i{
         background-color: var(--main-color-white);
         color: var(--main-color-indigo);

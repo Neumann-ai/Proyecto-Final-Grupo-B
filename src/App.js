@@ -15,6 +15,7 @@ import ListaSeriesEditar from "./Componentes/PaginasPanelAdmin/ListaSeriesEditar
 
 import User from "./Componentes/PaginasPanelAdmin/User";
 import SeccionIndividual from "./Componentes/SeccionIndividual";
+import NotFound from "./Componentes/404/NotFound";
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
             </Route>
           </Route>
           <Route path="/ver/:id"  element={<SeccionIndividual/>}/>
+          <Route path="*"element={<NotFound/>}/>
         </Routes>
       </Router>
     </div>

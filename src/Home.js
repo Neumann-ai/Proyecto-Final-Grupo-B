@@ -22,13 +22,9 @@ export default function Home({ tipo }) {
     getListaRandom();
   }, [tipo]);
 
- console.log(listas[0]);
-
  const listasMostrar = listas.filter(
   (lista) => lista.contenido.length > 1
 );
-
-console.log(listasMostrar);
 
   return (
     <div>

@@ -102,7 +102,8 @@ export default function ListasSeries(Lista) {
     getListas();
   }, [Lista]);
 
-  const listasPeliculas = listas.filter((film) => film.tipo === "pelicula");
+
+  const listasPeliculas =  listas.filter((film) => film.tipo === "pelicula");
 
   const filas = listasPeliculas.map((lista) => {
     const listaActual = {

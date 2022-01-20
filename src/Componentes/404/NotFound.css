@@ -1,0 +1,24 @@
+.contenedor-notfound{
+    background-color: var( --clr-morado1);
+}
+
+
+.contenedor-notfound .texto{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    inset: 30% 0 0 0 ;
+    font-size: 5em;
+    z-index: 500;
+}
+
+
+.contenedor-notfound .imagen img{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
+    mix-blend-mode:color;
+}

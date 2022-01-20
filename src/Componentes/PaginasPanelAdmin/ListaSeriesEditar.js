@@ -29,6 +29,7 @@ export default function Pelicula() {
     nombre: "",
     tipo: "",
     genero: "",
+    contenido:""
   });
 
   function handleUpdate(event) {

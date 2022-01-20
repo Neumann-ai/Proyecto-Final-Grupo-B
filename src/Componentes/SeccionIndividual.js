@@ -28,7 +28,7 @@ export default function SeccionIndividual() {
       <section className="container-sm contenedor-pelicula">
         <figure className="header-pelicula">
           <div className="degrade"></div>
-          <img src={pelicula.imagen} alt="" />
+          <img src={pelicula.imagenHorizontal} alt="imagen" />
         </figure>
         <div className="contenedor-texto row">
           <div className="titulo-resenia col-xl-8">

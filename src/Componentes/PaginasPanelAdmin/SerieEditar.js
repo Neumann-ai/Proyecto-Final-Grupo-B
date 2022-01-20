@@ -30,7 +30,8 @@ export default function Pelicula() {
     protagonistas: "",
     duracion: "",
     trailer: "",
-    imagen: "",
+    imagenVertical: "",
+    imagenHorizontal: "",
     fecha_de_Estreno: "",
     sinopsis: "",
     genero: "",
@@ -71,7 +72,8 @@ export default function Pelicula() {
       protagonistas: updatedItem.protagonistas,
       duracion: updatedItem.duracion,
       trailer: updatedItem.trailer,
-      imagen: updatedItem.imagen,
+      imagenVertical: updatedItem.imagenVertical,
+      imagenHorizontal: updatedItem.imagenHorizontal,
       fecha_de_Estreno: updatedItem.fecha_de_Estreno,
       sinopsis: updatedItem.sinopsis,
       genero: updatedItem.genero,
@@ -155,14 +157,24 @@ export default function Pelicula() {
             </div>
           </div>
           <div className="editar-derecha col-12 col-sm-6 col-xl-4">
-            <div className="item-input">
-              <label htmlFor="imagen">Imagen</label>
+          <div className="item-input">
+              <label htmlFor="imagenVertical">Imagen vertical <i class="fas fa-arrows-alt-v"></i></label>
               <input
                 onChange={handleUpdate}
-                name="imagen"
+                name="imagenVertical"
                 type="url"
-                defaultValue={serie.imagen}
-                id="imagen"
+                defaultValue={serie.imagenVertical}
+                id="imagenVertical"
+              />
+            </div>
+            <div className="item-input">
+              <label htmlFor="imagenHorizontal">Imagen horizontal <i class="fas fa-arrows-alt-h"></i></label>
+              <input
+                onChange={handleUpdate}
+                name="imagenHorizontal"
+                type="url"
+                defaultValue={serie.imagenHorizontal}
+                id="imagenHorizontal"
               />
             </div>
             <div className="item-input">

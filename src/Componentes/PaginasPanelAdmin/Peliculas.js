@@ -16,7 +16,7 @@ export default function Peliculas(pelis) {
       renderCell: (params) => {
         return (
           <figure className="pelicula-nombre">
-            <img src={params.row.imagen} alt="imagen" />
+            <img src={params.row.imagenHorizontal} alt="imagen" />
             {params.row.nombre}
           </figure>
         );
@@ -85,7 +85,8 @@ export default function Peliculas(pelis) {
     protagonistas: "",
     duracion: "",
     trailer: "",
-    imagen: "",
+    imagenVertical: "",
+    imagenHorizontal: "",
     fecha_de_Estreno: "",
     sinopsis: "",
     genero: "",
@@ -127,7 +128,8 @@ export default function Peliculas(pelis) {
       protagonistas: item.protagonistas,
       duracion: item.duracion,
       trailer: item.trailer,
-      imagen: item.imagen,
+      imagenVertical: item.imagenVertical,
+      imagenHorizontal: item.imagenHorizontal,
       fecha_de_Estreno: item.fecha_de_Estreno,
       sinopsis: item.sinopsis,
       genero: item.genero,
@@ -142,7 +144,8 @@ export default function Peliculas(pelis) {
       protagonistas: "",
       duracion: "",
       trailer: "",
-      imagen: "",
+      imagenVertical: "",
+      imagenHorizontal:"",
       fecha_de_Estreno: "",
       sinopsis: "",
       genero: "",
@@ -184,7 +187,8 @@ export default function Peliculas(pelis) {
       protagonistas: pelicula.protagonistas,
       duracion: pelicula.duracion,
       trailer: pelicula.trailer,
-      imagen: pelicula.imagen,
+      imagenVertical: pelicula.imagenVertical,
+      imagenHorizontal: pelicula.imagenHorizontal,
       estreno: pelicula.fecha_de_Estreno,
       sinopsis: pelicula.sinopsis,
       genero: pelicula.genero,
@@ -333,7 +337,7 @@ export default function Peliculas(pelis) {
                       name="trailer"
                       value={item.trailer}
                       type="url"
-                      placeholder="Romance"
+                      placeholder="https://www.youtube.com/embed/..."
                       id="trailer"
                       required
                     />
@@ -341,14 +345,26 @@ export default function Peliculas(pelis) {
                 </div>
                 <div className="editar-derecha col-6">
                   <div className="item-input">
-                    <label htmlFor="imagen">Imagen</label>
+                    <label htmlFor="imagenVertical">Imagen vertical <i class="fas fa-arrows-alt-v"></i></label>
                     <input
                       onChange={handleChange}
-                      name="imagen"
-                      value={item.imagen}
+                      name="imagenVertical"
+                      value={item.imagenVertical}
                       type="url"
                       placeholder="https://picsum.photos/id/237/200/300"
-                      id="imagen"
+                      id="imagenVertical"
+                      required
+                    ></input>
+                  </div>
+                  <div className="item-input">
+                    <label htmlFor="imagenHorizontal">Imagen horizontal <i class="fas fa-arrows-alt-h"></i></label>
+                    <input
+                      onChange={handleChange}
+                      name="imagenHorizontal"
+                      value={item.imagenHorizontal}
+                      type="url"
+                      placeholder="https://picsum.photos/id/237/200/300"
+                      id="imagenHorizontal"
                       required
                     ></input>
                   </div>
