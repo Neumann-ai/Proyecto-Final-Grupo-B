@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Toaster, toast } from "react-hot-toast";
+//import { Toaster, toast } from "react-hot-toast";
 
 export default function Peliculas(pelis) {
   // COLUMNAS
@@ -71,7 +71,6 @@ export default function Peliculas(pelis) {
               class="fas fa-trash-alt"
               onClick={() => borrarItem(params.row.id)}
             ></i>
-            <Toaster />
           </div>
         );
       },
@@ -152,7 +151,6 @@ export default function Peliculas(pelis) {
       esPelicula: false,
       destacada: false,
     });
-    toast.success("Item agregado");
     getPeliculas();
   }
 
@@ -205,7 +203,6 @@ export default function Peliculas(pelis) {
       );
       if (res.status === 200) {
         console.log("item borrado");
-        toast.success("Item borrado");
         getPeliculas();
       }
     }
@@ -404,7 +401,6 @@ export default function Peliculas(pelis) {
                   </div>
                 </div>
               </form>
-              <Toaster />
             </div>
             <div class="modal-footer">
               <button
