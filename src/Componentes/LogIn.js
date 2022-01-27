@@ -8,7 +8,7 @@ function LogIn(){
 
     const [user, setUser] = useState(
         {
-            nombre: "",
+            email: "",
             contrasenia:"",
         });
     const onChangeUser = e => {
@@ -32,7 +32,7 @@ function LogIn(){
                 <label className="logIn-label">Iniciar sesión</label>
                 </div>
                 <div className="col-12">
-                    <input type="mail" className="form-control userName" name='email' value={user.nombre} id="userMail" placeholder="Correo Electronico" onChange={onChangeUser} />
+                    <input type="mail" className="form-control userMail" name='email' value={user.nombre} id="userMail" placeholder="Correo Electronico" onChange={onChangeUser} />
                 </div>
                 <div className="col-12">
                     <input type="password" className="form-control userPass" name='contrasenia' value={user.contrasenia} id="userPass"  placeholder="Contraseña" onChange={onChangeUser}/>
