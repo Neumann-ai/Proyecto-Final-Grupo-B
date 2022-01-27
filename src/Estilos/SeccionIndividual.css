@@ -1,0 +1,87 @@
+.container-sm {
+  color: #cecccc;
+}
+
+.titulo-resenia{
+  padding-left: 0;
+}
+
+
+.header-pelicula {
+  height: 350px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.header-pelicula img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.header-pelicula .degrade {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.contenedor-pelicula .titulo {
+  margin-bottom: 2em;
+}
+.contenedor-pelicula .titulo h1 {
+  font-weight: 700;
+  color: #cecccc;
+  position: relative;
+  display: inline;
+  padding-left: 15px;
+}
+
+.contenedor-pelicula .titulo h1::after {
+  content: "";
+  height: 300%;
+  width: 120%;
+  background-color: var(--clr-morado1);
+  position: absolute;
+  top: -2em;
+  left: 0;
+  z-index: -1;
+}
+
+.datos .item-datos {
+  display: flex;
+}
+
+.datos .item-datos p {
+  margin-right: 0.5em;
+}
+
+.datos .item-datos .titulo-dato {
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 3em;
+  height: 150px;
+  background-color: #11082b;
+  position: relative;
+  bottom: 0;
+  color: #cecccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: context-menu;
+}
+
+@media  (max-width:1200px) {
+  .datos{
+    padding-left:0;
+  }
+}

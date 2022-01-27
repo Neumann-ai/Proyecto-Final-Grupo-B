@@ -29,26 +29,34 @@ form {
   margin-top: 1em;
 }
 
+.item-input .elegir input{
+  margin: 0.5em;
+}
+
 .item-input input {
   background: transparent;
   border: none;
   border-bottom: 1px solid #000;
 }
 
+.item-input label {
+  margin-left: 0;
+  margin-right: 0.5em;
+}
+
 figure img {
   margin: 0 auto;
 }
 
-.opcion-tipo label {
-  margin-left: 0.5em;
-}
 button.enviar-edicion {
-  margin-top: 0.5em;
   border: none;
   border-radius: 5px;
-  color: var(--clr-gris);
+  color: #fff;
   background-color: var(--clr-morado1);
   position: relative;
   bottom: 0;
-  padding-right: 1em 2em;
+  padding: 0.5em 2em;
+  width: 50%;
+  margin: 1em auto ;
+
 }

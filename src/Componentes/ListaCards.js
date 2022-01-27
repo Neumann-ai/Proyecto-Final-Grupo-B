@@ -1,71 +1,57 @@
-import { useRef, useState } from "react";
-import BtnAgragarCard from "./BtnAgragarCard";
+import { useState } from "react";
 import CardItems from "./CardItems";
+import "../Estilos/EstilosCard.css";
 
-// const contenedorLista = document.querySelector('.contenedor-lista-items')
-// const flechaIzquierda = document.getElementById('flecha-izquierda')
-// const flechaDerecha = document.getElementById('flecha-derecha')
+function ListaCards({ lista }) {
+  const [scrollX, setScrollX] = useState(-500);
 
-// flechaDerecha.addEventListener('click', () =>{
-//     contenedorLista.scrollLeft +=  contenedorLista.offsetWidth
-// })
-
-// flechaIzquierda.addEventListener('click', () =>{
-//     contenedorLista.scrollLeft -=  contenedorLista.offsetWidth
-// })
-
-function ListaCards() {
-  const listRef = useRef();
-  const [contador, setContador] = useState(0)
-
-  const handleClick = (direccion) => {
-    const anchoPantalla = listRef.current.offsetWidth / 5;
-
-    if (direccion === "left") {
-      setContador((contador - 1) < 0 ? 0 : contador - 1)
-      listRef.current.style.transform = `translateX(-${contador * anchoPantalla}px)`;
-      
-     // listRef.current.scrollLeft +=  listRef.current.offsetWidth
+  const handleLeft = () => {
+    let x = scrollX + Math.round(window.innerWidth / 2);
+    if (x > 0) {
+      x = 0;
     }
+    setScrollX(x);
+  };
 
-    if (direccion === "right") {
-      console.log(listRef.current.offsetWidth);
-      setContador((contador * anchoPantalla) >  listRef.current.offsetWidth ? contador : contador + 1)
+  const handleRight = () => {
+    let x = scrollX - Math.round(window.innerWidth / 2);
 
-      listRef.current.style.transform = `translateX(-${contador * anchoPantalla}px)`;
-
-       //listRef.current.scrollLeft -=  listRef.current.offsetWidth
+    if (window.innerWidth > 900) {
+      let listaWidth = lista.contenido.length * 250;
+      if (window.innerWidth - listaWidth > x) {
+        x = window.innerWidth - listaWidth;
+      }
+      setScrollX(x);
+    } else {
+      let listaWidth = lista.contenido.length * 150;
+      if (window.innerWidth - listaWidth > x) {
+        x = window.innerWidth - listaWidth;
+      }
+      setScrollX(x);
     }
   };
 
   return (
     <section className="contenedor-principal">
-      <h3 className="categoria-lista">Peliculas</h3>
+      <h3 className="categoria-lista">{lista.nombre}</h3>
       <button
         id="flecha-izquierda"
         className="flecha-izquierda"
-        onClick={() => handleClick("left")}
+        onClick={handleLeft}
       >
         <i className="fas fa-caret-left"></i>
       </button>
-      <section className="contenedor-lista-items" >
-        <section className="lista-items" ref={listRef}>
-          <BtnAgragarCard />
-          <CardItems />
-          <CardItems />
-          <CardItems />
-          <CardItems />
-          <CardItems />
-          <CardItems />
-          <CardItems />
-          <CardItems />
-          <CardItems />
+      <section className="contenedor-lista-items">
+        <section className="lista-items" style={{ left: scrollX }}>
+          { lista.contenido.length > 1 ?  lista.contenido.map((item, index) => (
+            <CardItems item={item} index={index} />
+          )) : ""}
         </section>
       </section>
       <button
         id="flecha-derecha"
         className="flecha-derecha"
-        onClick={() => handleClick("right")}
+        onClick={handleRight}
       >
         <i className="fas fa-caret-right"></i>
       </button>

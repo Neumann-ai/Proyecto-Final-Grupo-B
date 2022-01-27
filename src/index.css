@@ -10,6 +10,7 @@ body {
 }
 
 .container-adminpanel {
+  /* height: 100vh; */
   display: flex;
   color: white;
 }
@@ -25,4 +26,13 @@ body {
 
 .outlet {
   flex: 4;
+}
+
+.loading{
+  position: fixed;
+  inset: 0 0 0 0;
+  z-index: 100;
+  background-color: #000;
+  display: grid;
+  place-items: center;
 }

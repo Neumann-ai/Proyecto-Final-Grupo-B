@@ -4,9 +4,13 @@
 
 .sidebar {
   flex: 1;
-  height: 100vh;
-  top: 0;
+  height: calc(100vh - 57px);
   position: sticky;
+  top: 57px;
+}
+
+.sidebar .link:hover {
+  color: var(--clr-morado1);
 }
 
 .sidebar .sidebar-contenedor {
@@ -43,6 +47,13 @@
   margin-bottom: 0;
 }
 
+.separador {
+  height: 5px;
+  width: 100%;
+  color: #fff;
+  margin: 1em 0;
+}
+
 @media (max-width: 940px) {
   .sidebar ul {
     padding-left: 0;
@@ -56,7 +67,7 @@
 }
 
 @media (max-width: 540px) {
-  .sidebar-titulo{
+  .sidebar-titulo {
     display: none;
   }
 

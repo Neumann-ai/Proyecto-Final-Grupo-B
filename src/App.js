@@ -4,7 +4,15 @@ import Home from "./Home";
 import Configuracion from "./Componentes/Configuracion";
 import MisDatos from "./Componentes/PaginasPanelAdmin/MisDatos";
 import Peliculas from "./Componentes/PaginasPanelAdmin/Peliculas";
+import PeliculaEditar from "./Componentes/PaginasPanelAdmin/PeliculaEditar";
+import ListasPeliculas from "./Componentes/PaginasPanelAdmin/ListasPeliculas";
+import ListaPeliculasEditar from "./Componentes/PaginasPanelAdmin/ListaPeliculasEditar";
 import UsuariosLista from "./Componentes/PaginasPanelAdmin/UsuariosLista";
+import Series from "./Componentes/PaginasPanelAdmin/Series";
+import SerieEditar from "./Componentes/PaginasPanelAdmin/SerieEditar";
+import ListasSeries from "./Componentes/PaginasPanelAdmin/ListasSeries";
+import ListaSeriesEditar from "./Componentes/PaginasPanelAdmin/ListaSeriesEditar";
+
 import User from "./Componentes/PaginasPanelAdmin/User";
 import Pelicula from "./Componentes/PaginasPanelAdmin/Pelicula";
 import LogIn from "./Componentes/LogIn";
@@ -16,7 +24,9 @@ export default function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<LogIn />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/peliculas" element={<Home tipo="peliculas" />} />
+          <Route path="/series" element={<Home tipo="series" />} />
           <Route path="/configuracion" element={<Configuracion />}>
             <Route index element={<MisDatos />} />
             <Route path="misdatos" element={<MisDatos />} />
@@ -24,10 +34,21 @@ export default function App() {
               <Route path="user/:userId" element={<User />} />
             </Route>
             <Route path="peliculas" element={<Peliculas />}>
-              <Route path="pelicula/:peliId" element={<Pelicula />} />
+              <Route path="pelicula/:peliId" element={<PeliculaEditar />} />
+            </Route>
+            <Route path="listapeliculas" element={<ListasPeliculas />}>
+              <Route path="listapelicula/:listaId" element={<ListaPeliculasEditar/>} />
+            </Route>
+            <Route path="series" element={<Series />}>
+              <Route path="serie/:serieId" element={<SerieEditar />} />
+            </Route>
+            <Route path="listaseries" element={<ListasSeries />}>
+              <Route path="listaseries/:listaId" element={<ListaSeriesEditar/>} />
             </Route>
           </Route>
           <Route path="Register" element={<Register />}/>
+          <Route path="/ver/:id"  element={<SeccionIndividual/>}/>
+          <Route path="*"element={<NotFound/>}/>
         </Routes>
       </Router>
     </div>
