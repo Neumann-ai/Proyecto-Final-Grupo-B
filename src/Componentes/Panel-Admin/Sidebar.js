@@ -11,36 +11,36 @@ export default function Sidebar() {
             <h3 className="sidebar-titulo">Panel</h3>
 
             <ul>
-              <NavLink to="misdatos" className="link">
+              <NavLink to="misdatos" className="link" activeClassName="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-user-tie"></i> <p>Mis datos</p>
                 </li>
               </NavLink>
-              <NavLink to="usuarioslista" className="link">
+              <NavLink to="usuarioslista" className="link" activeClassName="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-users"></i> <p>Usuarios</p>
                 </li>
               </NavLink>
               <hr />{" "}
-              <NavLink to="peliculas" className="link">
+              <NavLink to="peliculas" className="link" activeClassName="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-film"></i> <p>Peliculas</p>
                 </li>
               </NavLink>
-              <NavLink to="listapeliculas" className="link">
+              <NavLink to="listapeliculas" className="link" activeClassName="active-link">
                 <li className="sidebar-item">
-                <i class="fas fa-list"></i> <p>Categorias de Peliculas</p>
+                <i className="fas fa-list"></i> <p>Categorias de Peliculas</p>
                 </li>
               </NavLink>
               <hr />
-              <NavLink to="series" className="link">
+              <NavLink to="series" className="link" activeClassName="active-link">
                 <li className="sidebar-item">
-                  <i class="fas fa-video"></i> <p>Series</p>
+                  <i className="fas fa-video"></i> <p>Series</p>
                 </li>
               </NavLink>
-              <NavLink to="listaseries" className="link">
+              <NavLink to="listaseries" className="link" activeClassName="active-link">
                 <li className="sidebar-item">
-                <i class="fas fa-list"></i> <p>Categorias de Series</p>
+                <i className="fas fa-list"></i> <p>Categorias de Series</p>
                 </li>
               </NavLink>
             </ul>

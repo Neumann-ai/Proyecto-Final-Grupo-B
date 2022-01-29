@@ -63,12 +63,12 @@ export default function Peliculas(pelis) {
           // BOTON EDITAR
           <div className="acciones">
             <Link to={"pelicula/" + params.row.id}>
-              <i class="fas fa-user-edit"></i>
+              <i className="fas fa-user-edit"></i>
             </Link>
 
             {/* BOTON BORRAR */}
             <i
-              class="fas fa-trash-alt"
+              className="fas fa-trash-alt"
               onClick={() => borrarItem(params.row.id)}
             ></i>
           </div>
@@ -223,7 +223,7 @@ export default function Peliculas(pelis) {
       {/* BOTON AGREGAR PELICULA */}
       <button
         type="button"
-        class="agregar-pelicula"
+        className="agregar-pelicula"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
@@ -232,27 +232,27 @@ export default function Peliculas(pelis) {
 
       {/* MODAL PARA AGREGAR PELICULA */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog modal-lg">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Ingrese los datos
               </h5>
 
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               {/* FORMULARIO AGREGAR PELICULA */}
               <form className="row">
                 <div className="editar-izquierda col-6">
@@ -342,7 +342,7 @@ export default function Peliculas(pelis) {
                 </div>
                 <div className="editar-derecha col-6">
                   <div className="item-input">
-                    <label htmlFor="imagenVertical">Imagen vertical <i class="fas fa-arrows-alt-v"></i></label>
+                    <label htmlFor="imagenVertical">Imagen vertical <i className="fas fa-arrows-alt-v"></i></label>
                     <input
                       onChange={handleChange}
                       name="imagenVertical"
@@ -354,7 +354,7 @@ export default function Peliculas(pelis) {
                     ></input>
                   </div>
                   <div className="item-input">
-                    <label htmlFor="imagenHorizontal">Imagen horizontal <i class="fas fa-arrows-alt-h"></i></label>
+                    <label htmlFor="imagenHorizontal">Imagen horizontal <i className="fas fa-arrows-alt-h"></i></label>
                     <input
                       onChange={handleChange}
                       name="imagenHorizontal"
@@ -402,10 +402,10 @@ export default function Peliculas(pelis) {
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Cerrar
@@ -413,7 +413,7 @@ export default function Peliculas(pelis) {
               <button
                 onClick={agregarItem}
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
               >
                 Guardar
               </button>

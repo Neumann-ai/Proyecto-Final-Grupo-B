@@ -1,10 +1,10 @@
 import "../../Estilos/Peliculas.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function ListasSeries(Lista) {
+export default function ListasSeries({ Lista }) {
   // COLUMNAS
   const columns = [
     { field: "id", headerName: "ID", width: 200 },
@@ -29,12 +29,12 @@ export default function ListasSeries(Lista) {
           // BOTON EDITAR
           <div className="acciones">
             <Link to={"listapelicula/" + params.row.id}>
-              <i class="fas fa-user-edit"></i>
+              <i className="fas fa-user-edit"></i>
             </Link>
 
             {/* BOTON BORRAR */}
             <i
-              class="fas fa-trash-alt"
+              className="fas fa-trash-alt"
               onClick={() => borrarItem(params.row.id)}
             ></i>
           </div>
@@ -61,7 +61,7 @@ export default function ListasSeries(Lista) {
     });
   }
 
-  function agregarItem(event) {
+  async function agregarItem(event) {
     event.preventDefault();
     const nuevoItem = {
       nombre: item.nombre,
@@ -69,23 +69,23 @@ export default function ListasSeries(Lista) {
       genero: item.genero,
       contenido: item.contenido,
     };
-    axios.post("/listapeliculas", nuevoItem);
-    setListas();
+    const resultado = await axios.post("/listapeliculas", nuevoItem);
+    setListas([resultado.data, ...listas]);
     setItem({
       nombre: "",
       tipo: "",
       genero: "",
       contenido: "",
     });
-    setListas();
   }
 
   //MOSTRAR LISTAS
   const [listas, setListas] = useState([]);
+  const [listasSeries, setListasSeries] = useState([]);
 
   const getListas = async () => {
     try {
-      await axios
+      axios
         .get(`http://localhost:4001/api/listapeliculas/`)
         .then((response) => {
           setListas(response.data);
@@ -99,10 +99,13 @@ export default function ListasSeries(Lista) {
     getListas();
   }, [Lista]);
 
+  useEffect(() => {
+    if (listas) {
+      setListasSeries(listas.filter((serie) => serie.tipo === "pelicula"));
+    }
+  }, [listas]);
 
-  const listasPeliculas =  listas.filter((film) => film.tipo === "pelicula");
-
-  const filas = listasPeliculas.map((lista) => {
+  const filas = listasSeries.map((lista) => {
     const listaActual = {
       id: lista._id,
       nombre: lista.nombre,
@@ -114,6 +117,8 @@ export default function ListasSeries(Lista) {
   });
 
   // BORRAR PELICULA
+  const history = useNavigate();
+
   const borrarItem = async (id) => {
     if (window.confirm("¿Estas seguro de borrar este item?")) {
       const res = await axios.delete(
@@ -121,7 +126,8 @@ export default function ListasSeries(Lista) {
       );
       if (res.status === 200) {
         console.log("item borrado");
-        setListas();
+        setListas(res.data.listaBorrar);
+        history("/configuracion/listaseries/");
       }
     }
   };
@@ -135,13 +141,12 @@ export default function ListasSeries(Lista) {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        checkboxSelection
       />
 
       {/* BOTON AGREGAR LISTA */}
       <button
         type="button"
-        class="agregar-pelicula"
+        className="agregar-pelicula"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
@@ -150,27 +155,27 @@ export default function ListasSeries(Lista) {
 
       {/* MODAL PARA AGREGAR LISTAS */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog modal-lg">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Ingrese los datos
               </h5>
 
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               {/* FORMULARIO AGREGAR LISTAS */}
               <form className="row">
                 <div className="editar-izquierda col-6">
@@ -201,15 +206,9 @@ export default function ListasSeries(Lista) {
                 <div className="editar-derecha col-6">
                   <div className="item-input">
                     <label htmlFor="contenido">Contenido</label>
-                    <input
-                      onChange={handleChange}
-                      name="contenido"
-                      value={item.contenido}
-                      type="text"
-                      placeholder="ID de peliculas/series"
-                      id="contenido"
-                      required
-                    />
+                    <p className="aviso-contenido">
+                      Lo agregaras luedo de creada la lista
+                    </p>
                   </div>
                   <div className="item-input radiobutton">
                     <span>Es una lista de...</span>
@@ -237,10 +236,10 @@ export default function ListasSeries(Lista) {
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Cerrar
@@ -248,7 +247,7 @@ export default function ListasSeries(Lista) {
               <button
                 onClick={agregarItem}
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
               >
                 Guardar
               </button>

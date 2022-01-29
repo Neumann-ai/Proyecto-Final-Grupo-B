@@ -38,9 +38,9 @@ export default function UsuariosLista() {
         return (
           <div className="acciones">
             <Link to={"user/" + params.row.id}>
-              <i class="fas fa-user-edit"></i>
+              <i className="fas fa-user-edit"></i>
             </Link>
-            <i class="fas fa-trash-alt"></i>
+            <i className="fas fa-trash-alt"></i>
           </div>
         );
       },
@@ -72,34 +72,34 @@ export default function UsuariosLista() {
 
         <button
           type="button"
-          class="agregar-usuario"
+          className="agregar-usuario"
           data-bs-toggle="modal"
           data-bs-target="#agregarUsuarioModal"
         >
           Crear usuario
         </button>
         <div
-          class="modal fade"
+          className="modal fade"
           id="agregarUsuarioModal"
           tabindex="-1"
           aria-labelledby="agregarUsuarioModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog ">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="agregarUsuarioModalLabel">
+          <div className="modal-dialog ">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="agregarUsuarioModalLabel">
                   Ingrese los datos
                 </h5>
 
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form className="formulario-editar row">
                   <div className="editar-izquierda col-6">
                     <div className="item-input">
@@ -156,15 +156,15 @@ export default function UsuariosLista() {
                   </div>
                 </form>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                   Save changes
                 </button>
               </div>

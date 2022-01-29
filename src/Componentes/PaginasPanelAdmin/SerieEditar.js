@@ -158,7 +158,7 @@ export default function Pelicula() {
           </div>
           <div className="editar-derecha col-12 col-sm-6 col-xl-4">
           <div className="item-input">
-              <label htmlFor="imagenVertical">Imagen vertical <i class="fas fa-arrows-alt-v"></i></label>
+              <label htmlFor="imagenVertical">Imagen vertical <i className="fas fa-arrows-alt-v"></i></label>
               <input
                 onChange={handleUpdate}
                 name="imagenVertical"
@@ -168,7 +168,7 @@ export default function Pelicula() {
               />
             </div>
             <div className="item-input">
-              <label htmlFor="imagenHorizontal">Imagen horizontal <i class="fas fa-arrows-alt-h"></i></label>
+              <label htmlFor="imagenHorizontal">Imagen horizontal <i className="fas fa-arrows-alt-h"></i></label>
               <input
                 onChange={handleUpdate}
                 name="imagenHorizontal"

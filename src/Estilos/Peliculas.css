@@ -34,6 +34,20 @@ figure.pelicula-nombre {
   color: #fff;
 }
 
+.agregar-item-lista{
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: var(--clr-gris);
+  padding: 0.5em 1em;
+  margin-left: 1em;
+  color: #fff;
+}
+
+.agregar-contenido{
+  margin-bottom: 1em;
+}
+
 .acciones .fa-user-edit{
   
 }
