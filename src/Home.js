@@ -12,7 +12,7 @@ export default function Home({ tipo }) {
     const getListaRandom = async () => {
       try {
         const res = await axios.get(
-          `listapeliculas${tipo ? "?tipo=" + tipo : ""}`
+          `listapeliculas/${tipo ? "?tipo=" + tipo : ""}`
         );
         setListas(res.data);
       } catch (err) {
@@ -27,7 +27,7 @@ export default function Home({ tipo }) {
 );
 
   return (
-    <div>
+    <div className="contenedor-navbar-configuacion">
       <Navbar />
       <h2>Aqui va el slider</h2>
       {listasMostrar.map((lista) => (

@@ -40,7 +40,7 @@ export default function Pelicula() {
     {
       field: "nombre",
       headerName: "Nombre",
-      width: 300,
+      width: 400,
       renderCell: (params) => {
         return (
           <figure className="pelicula-nombre">
@@ -117,6 +117,7 @@ export default function Pelicula() {
       const respuesta = await axios.post(
         `/listapeliculas/${listaId}/agregarfilm/${select}`
       );
+      setSelect("")
       document.getElementById("cerrarAgregarItemLista").click();
       setContenido(respuesta.data.contenido);
     } else {
@@ -142,8 +143,8 @@ export default function Pelicula() {
       <div className="contenedor-info-editar">
         {/* FORMULARIO PARA EDITAR  */}
         <form className="row" onSubmit={actualizarItem}>
-          <div className="editar-izquierda col-12 ">
-            <div className="item-input">
+          <div className="editar-izquierda col-12 row ">
+            <div className="item-input col-xl-5">
               <label htmlFor="nombre">Nombre</label>
 
               <input
@@ -154,8 +155,8 @@ export default function Pelicula() {
                 id="nombre"
               />
             </div>
-            <div className="item-input">
-              <label htmlFor="genero">Genero</label>
+            <div className="item-input col-xl-5">
+              <label htmlFor="genero">Género</label>
               <input
                 onChange={handleUpdate}
                 name="genero"
@@ -164,7 +165,7 @@ export default function Pelicula() {
                 id="genero"
               />
             </div>
-            <div className="item-input radiobutton">
+            <div className="item-input radiobutton col-xl-2">
               <span>Es una...</span>
               <div className="elegir">
                 <input
@@ -218,7 +219,7 @@ export default function Pelicula() {
         <div
           className="modal fade"
           id="agregarItemALista"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="agregarItemAListaLabel"
           aria-hidden="true"
         >
@@ -245,7 +246,6 @@ export default function Pelicula() {
                     <div className="item-input">
                       <label htmlFor="nombre">Nombre</label>
                       <select
-                        name="select"
                         onChange={(e) => setSelect(e.target.value)}
                         required
                       >

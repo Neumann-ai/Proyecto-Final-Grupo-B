@@ -54,11 +54,11 @@ export default function SeccionIndividual() {
               <p className="dato">{pelicula.fecha_de_Estreno}</p>
             </div>
             <div className="item-datos">
-              <p className="titulo-dato">Duracion:</p>
+              <p className="titulo-dato">Duración:</p>
               <p className="dato">{pelicula.duracion}</p>
             </div>
             <div className="item-datos">
-              <p className="titulo-dato">Genero:</p>
+              <p className="titulo-dato">Género:</p>
               <p className="dato">{pelicula.genero}</p>
             </div>
           </div>

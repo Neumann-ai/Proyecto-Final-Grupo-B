@@ -11,34 +11,34 @@ export default function Sidebar() {
             <h3 className="sidebar-titulo">Panel</h3>
 
             <ul>
-              <NavLink to="misdatos" className="link" activeClassName="active-link">
+              <NavLink to="misdatos" className="link" activeclassname="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-user-tie"></i> <p>Mis datos</p>
                 </li>
               </NavLink>
-              <NavLink to="usuarioslista" className="link" activeClassName="active-link">
+              <NavLink to="usuarioslista" className="link" activeclassname="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-users"></i> <p>Usuarios</p>
                 </li>
               </NavLink>
               <hr />{" "}
-              <NavLink to="peliculas" className="link" activeClassName="active-link">
+              <NavLink to="peliculas" className="link" activeclassname="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-film"></i> <p>Peliculas</p>
                 </li>
               </NavLink>
-              <NavLink to="listapeliculas" className="link" activeClassName="active-link">
+              <NavLink to="listapeliculas" className="link" activeclassname="active-link">
                 <li className="sidebar-item">
                 <i className="fas fa-list"></i> <p>Categorias de Peliculas</p>
                 </li>
               </NavLink>
               <hr />
-              <NavLink to="series" className="link" activeClassName="active-link">
+              <NavLink to="series" className="link" activeclassname="active-link">
                 <li className="sidebar-item">
                   <i className="fas fa-video"></i> <p>Series</p>
                 </li>
               </NavLink>
-              <NavLink to="listaseries" className="link" activeClassName="active-link">
+              <NavLink to="listaseries" className="link" activeclassname="active-link">
                 <li className="sidebar-item">
                 <i className="fas fa-list"></i> <p>Categorias de Series</p>
                 </li>

@@ -40,7 +40,7 @@ export default function Pelicula() {
     {
       field: "nombre",
       headerName: "Nombre",
-      width: 300,
+      width: 400,
       renderCell: (params) => {
         return (
           <figure className="pelicula-nombre">
@@ -142,8 +142,8 @@ export default function Pelicula() {
       <div className="contenedor-info-editar">
         {/* FORMULARIO PARA EDITAR  */}
         <form className="row" onSubmit={actualizarItem}>
-          <div className="editar-izquierda col-12 ">
-            <div className="item-input">
+          <div className="editar-izquierda col-12 row ">
+            <div className="item-input col-xl-5">
               <label htmlFor="nombre">Nombre</label>
               <input
                 onChange={handleUpdate}
@@ -153,8 +153,8 @@ export default function Pelicula() {
                 id="nombre"
               />
             </div>
-            <div className="item-input">
-              <label htmlFor="genero">Genero</label>
+            <div className="item-input col-xl-5">
+              <label htmlFor="genero">Género</label>
               <input
                 onChange={handleUpdate}
                 name="estreno"
@@ -163,7 +163,7 @@ export default function Pelicula() {
                 id="genero"
               />
             </div>
-            <div className="item-input radiobutton">
+            <div className="item-input radiobutton col-xl-2">
               <span>Es una...</span>
               <div className="elegir">
                 <input
@@ -216,7 +216,7 @@ export default function Pelicula() {
         <div
           className="modal fade"
           id="agregarItemALista"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="agregarItemAListaLabel"
           aria-hidden="true"
         >

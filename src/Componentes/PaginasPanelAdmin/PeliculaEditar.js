@@ -13,7 +13,7 @@ export default function Pelicula() {
       try {
         const pelicula = await axios.get(
           `http://localhost:4001/api/peliculas/${peliId}`
-        )
+        );
         setPelicula(pelicula.data);
       } catch (err) {
         console.log("messaje", err);
@@ -24,23 +24,12 @@ export default function Pelicula() {
 
   //ACTUALIZAR INFORMACION
 
-  const [updatedItem, setUpdatedItem] = useState({
-    nombre: "",
-    director: "",
-    protagonistas: "",
-    duracion: "",
-    trailer: "",
-    imagenVertical: "",
-    imagenHorizontal: "",
-    fecha_de_Estreno: "",
-    sinopsis: "",
-    genero: "",
-    destacada: false,
-    esPelicula: false,
-  });
+  const [updatedItem, setUpdatedItem] = useState({});
+  const [esPelicula, setEsPelicula] = useState(true);
 
   function handleUpdate(event) {
     if (event.target.name === "esPelicula") {
+      setEsPelicula(event.target.checked)
       setUpdatedItem(() => {
         return {
           [event.target.name]: event.target.checked,
@@ -60,8 +49,6 @@ export default function Pelicula() {
         };
       });
     }
-    console.log(setUpdatedItem);
-
   }
 
   function actualizarItem(event) {
@@ -81,7 +68,7 @@ export default function Pelicula() {
       destacada: updatedItem.destacada,
     };
     axios.put(`/peliculas/${peliId}`, informacionActualizada);
-    window.location.reload()
+    window.location.reload();
   }
 
   return (
@@ -116,7 +103,7 @@ export default function Pelicula() {
               />
             </div>
             <div className="item-input">
-              <label htmlFor="duracion">Duracion</label>
+              <label htmlFor="duracion">Duración</label>
               <input
                 onChange={handleUpdate}
                 name="duracion"
@@ -158,7 +145,9 @@ export default function Pelicula() {
           </div>
           <div className="editar-derecha col-12 col-sm-6 col-xl-4">
             <div className="item-input">
-              <label htmlFor="imagenVertical">Imagen vertical <i className="fas fa-arrows-alt-v"></i></label>
+              <label htmlFor="imagenVertical">
+                Imagen vertical <i className="fas fa-arrows-alt-v"></i>
+              </label>
               <input
                 onChange={handleUpdate}
                 name="imagenVertical"
@@ -168,7 +157,9 @@ export default function Pelicula() {
               />
             </div>
             <div className="item-input">
-              <label htmlFor="imagenHorizontal">Imagen horizontal <i className="fas fa-arrows-alt-h"></i></label>
+              <label htmlFor="imagenHorizontal">
+                Imagen horizontal <i className="fas fa-arrows-alt-h"></i>
+              </label>
               <input
                 onChange={handleUpdate}
                 name="imagenHorizontal"
@@ -178,7 +169,7 @@ export default function Pelicula() {
               />
             </div>
             <div className="item-input">
-              <label htmlFor="genero">Genero</label>
+              <label htmlFor="genero">Género</label>
               <input
                 onChange={handleUpdate}
                 name="genero"
@@ -189,12 +180,13 @@ export default function Pelicula() {
             </div>
             <div className="item-input">
               <div className="opcion-tipo">
-                <label htmlFor="pelicula">¿Es una pelicula?</label>
+                <label htmlFor="pelicula">¿Es una película?</label>
                 <input
                   onChange={handleUpdate}
                   type="checkbox"
                   name="esPelicula"
                   id="pelicula"
+                  checked={esPelicula}
                 />
               </div>
             </div>
@@ -209,10 +201,7 @@ export default function Pelicula() {
                 />
               </div>
             </div>
-            <button
-            type="submit"
-              className="enviar-edicion"
-            >
+            <button type="submit" className="enviar-edicion">
               Enviar
             </button>
           </div>

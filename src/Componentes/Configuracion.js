@@ -10,7 +10,7 @@ export default function Configuracion() {
       <div className="container-adminpanel">
         <Sidebar />
         <div className="outlet">
-          <Outlet />
+          <Outlet />         
         </div>
       </div>
     </div>

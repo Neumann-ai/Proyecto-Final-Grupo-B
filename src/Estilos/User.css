@@ -44,13 +44,4 @@
   margin-right: 0.5em;
 }
 
-button.enviar-edicion {
-  margin-top: 0.5em;
-  border: none;
-  border-radius: 5px;
-  color: var(--clr-gris);
-  background-color: var(--clr-morado1);
-  position: relative;
-  bottom: 0;
-  padding-right: 1em 2em;
-}
+

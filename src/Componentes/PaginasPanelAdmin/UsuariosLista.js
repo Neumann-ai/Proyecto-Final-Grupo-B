@@ -81,7 +81,7 @@ export default function UsuariosLista() {
         <div
           className="modal fade"
           id="agregarUsuarioModal"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="agregarUsuarioModalLabel"
           aria-hidden="true"
         >

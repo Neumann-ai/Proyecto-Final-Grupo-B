@@ -18,6 +18,8 @@ function CardItems({ index, item }) {
     getPeliculas();
   }, [item]);
 
+  console.log(item);
+
 const mostrar = item ? (
     
   <Link to={{ pathname: `/ver/${pelicula?._id}` }} className="link-card">

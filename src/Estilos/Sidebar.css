@@ -4,7 +4,8 @@
 
 .sidebar {
   flex: 1;
-  height: calc(100vh - 57px);
+  min-height: calc(100vh - 57px);
+  background: var(--clr-gris);
   position: sticky;
   top: 57px;
 }
@@ -12,7 +13,6 @@
 .sidebar .sidebar-contenedor {
   padding: 1.5em;
   background: var(--clr-gris);
-  height: 100%;
 }
 
 .sidebar .sidebar-contenedor .siedbar-menu {

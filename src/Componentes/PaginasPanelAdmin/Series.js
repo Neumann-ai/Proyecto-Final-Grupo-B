@@ -25,7 +25,7 @@ export default function Series(pelis) {
     { field: "estreno", headerName: "Estreno", width: 80 },
     {
       field: "duracion",
-      headerName: "Duracion",
+      headerName: "Duración",
       width: 100,
     },
     {
@@ -45,7 +45,7 @@ export default function Series(pelis) {
     },
     {
       field: "genero",
-      headerName: "Genero",
+      headerName: "Género",
       width: 120,
     },
     {
@@ -172,10 +172,9 @@ export default function Series(pelis) {
     getSeries();
   }, [pelis]);
 
-  
-  const sonSeries = series.filter(serie => serie.esPelicula === false)
+  const sonSeries = series.filter((serie) => serie.esPelicula === false);
 
-  const filas =  sonSeries.map((serie) => {
+  const filas = sonSeries.map((serie) => {
     const serieActual = {
       id: serie._id,
       nombre: serie.nombre,
@@ -191,7 +190,7 @@ export default function Series(pelis) {
       destacada: serie.destacada,
     };
     return serieActual;
-  })
+  });
 
   // BORRAR SERIE
   const borrarItem = async (id) => {
@@ -208,15 +207,16 @@ export default function Series(pelis) {
 
   return (
     <div className="lista-peliculas">
-      <DataGrid
-        className="dataGrid"
-        disableSelectionOnClick
-        rows={filas}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-      />
+      <div className="contenedor-tabla">
+        <DataGrid
+          className="dataGrid"
+          disableSelectionOnClick
+          rows={filas}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+        />
+      </div>
 
       {/* BOTON AGREGAR SERIE */}
       <button
@@ -232,7 +232,7 @@ export default function Series(pelis) {
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -278,7 +278,7 @@ export default function Series(pelis) {
                     />
                   </div>
                   <div className="item-input">
-                    <label htmlFor="duracion">Estreno</label>
+                    <label htmlFor="estreno">Estreno</label>
                     <input
                       onChange={handleChange}
                       name="fecha_de_Estreno"
@@ -290,7 +290,7 @@ export default function Series(pelis) {
                     />
                   </div>
                   <div className="item-input">
-                    <label htmlFor="duracion">Duracion</label>
+                    <label htmlFor="duracion">Duración</label>
                     <input
                       onChange={handleChange}
                       name="duracion"
@@ -339,8 +339,10 @@ export default function Series(pelis) {
                   </div>
                 </div>
                 <div className="editar-derecha col-6">
-                <div className="item-input">
-                    <label htmlFor="imagenVertical">Imagen vertical <i className="fas fa-arrows-alt-v"></i></label>
+                  <div className="item-input">
+                    <label htmlFor="imagenVertical">
+                      Imagen vertical <i className="fas fa-arrows-alt-v"></i>
+                    </label>
                     <input
                       onChange={handleChange}
                       name="imagenVertical"
@@ -352,7 +354,9 @@ export default function Series(pelis) {
                     ></input>
                   </div>
                   <div className="item-input">
-                    <label htmlFor="imagenHorizontal">Imagen horizontal <i className="fas fa-arrows-alt-h"></i></label>
+                    <label htmlFor="imagenHorizontal">
+                      Imagen horizontal <i className="fas fa-arrows-alt-h"></i>
+                    </label>
                     <input
                       onChange={handleChange}
                       name="imagenHorizontal"
@@ -364,7 +368,7 @@ export default function Series(pelis) {
                     ></input>
                   </div>
                   <div className="item-input">
-                    <label htmlFor="genero">Genero</label>
+                    <label htmlFor="genero">Género</label>
                     <input
                       onChange={handleChange}
                       name="genero"

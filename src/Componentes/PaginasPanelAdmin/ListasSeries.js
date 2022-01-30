@@ -13,7 +13,7 @@ export default function ListasPeliculas({ Lista }) {
       headerName: "Nombre",
       width: 200,
     },
-    { field: "genero", headerName: "Genero", width: 200 },
+    { field: "genero", headerName: "Género", width: 200 },
     { field: "tipo", headerName: "Tipo", width: 200 },
     {
       field: "contenido",
@@ -113,7 +113,7 @@ export default function ListasPeliculas({ Lista }) {
     return listaActual;
   });
 
-  // BORRAR LISTA 
+  // BORRAR LISTA
   const history = useNavigate();
 
   const borrarItem = async (id) => {
@@ -131,15 +131,16 @@ export default function ListasPeliculas({ Lista }) {
 
   return (
     <div className="lista-peliculas">
-      <DataGrid
-        className="dataGrid"
-        disableSelectionOnClick
-        rows={filas}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-      />
-
+      <div className="contenedor-tabla">
+        <DataGrid
+          className="dataGrid"
+          disableSelectionOnClick
+          rows={filas}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+        />
+      </div>
       {/* BOTON AGREGAR LISTA */}
       <button
         type="button"
@@ -154,7 +155,7 @@ export default function ListasPeliculas({ Lista }) {
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -188,7 +189,7 @@ export default function ListasPeliculas({ Lista }) {
                     />
                   </div>
                   <div className="item-input">
-                    <label htmlFor="genero">Genero</label>
+                    <label htmlFor="genero">Género</label>
                     <input
                       onChange={handleChange}
                       name="genero"

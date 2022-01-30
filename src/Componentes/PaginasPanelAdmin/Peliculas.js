@@ -26,7 +26,7 @@ export default function Peliculas(pelis) {
     { field: "estreno", headerName: "Estreno", width: 80 },
     {
       field: "duracion",
-      headerName: "Duracion",
+      headerName: "Duración",
       width: 100,
     },
     {
@@ -46,7 +46,7 @@ export default function Peliculas(pelis) {
     },
     {
       field: "genero",
-      headerName: "Genero",
+      headerName: "Género",
       width: 120,
     },
     {
@@ -144,7 +144,7 @@ export default function Peliculas(pelis) {
       duracion: "",
       trailer: "",
       imagenVertical: "",
-      imagenHorizontal:"",
+      imagenHorizontal: "",
       fecha_de_Estreno: "",
       sinopsis: "",
       genero: "",
@@ -210,6 +210,8 @@ export default function Peliculas(pelis) {
 
   return (
     <div className="lista-peliculas">
+      <div className="contenedor-tabla">
+
       <DataGrid
         className="dataGrid"
         disableSelectionOnClick
@@ -217,9 +219,8 @@ export default function Peliculas(pelis) {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        checkboxSelection
-      />
-
+        />
+        </div>
       {/* BOTON AGREGAR PELICULA */}
       <button
         type="button"
@@ -227,14 +228,14 @@ export default function Peliculas(pelis) {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Agregar Pelicula
+        Agregar Película
       </button>
 
       {/* MODAL PARA AGREGAR PELICULA */}
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -280,7 +281,7 @@ export default function Peliculas(pelis) {
                     />
                   </div>
                   <div className="item-input">
-                    <label htmlFor="duracion">Estreno</label>
+                    <label htmlFor="estreno">Estreno</label>
                     <input
                       onChange={handleChange}
                       name="fecha_de_Estreno"
@@ -292,7 +293,7 @@ export default function Peliculas(pelis) {
                     />
                   </div>
                   <div className="item-input">
-                    <label htmlFor="duracion">Duracion</label>
+                    <label htmlFor="duracion">Duración</label>
                     <input
                       onChange={handleChange}
                       name="duracion"
@@ -342,7 +343,9 @@ export default function Peliculas(pelis) {
                 </div>
                 <div className="editar-derecha col-6">
                   <div className="item-input">
-                    <label htmlFor="imagenVertical">Imagen vertical <i className="fas fa-arrows-alt-v"></i></label>
+                    <label htmlFor="imagenVertical">
+                      Imagen vertical <i className="fas fa-arrows-alt-v"></i>
+                    </label>
                     <input
                       onChange={handleChange}
                       name="imagenVertical"
@@ -354,7 +357,9 @@ export default function Peliculas(pelis) {
                     ></input>
                   </div>
                   <div className="item-input">
-                    <label htmlFor="imagenHorizontal">Imagen horizontal <i className="fas fa-arrows-alt-h"></i></label>
+                    <label htmlFor="imagenHorizontal">
+                      Imagen horizontal <i className="fas fa-arrows-alt-h"></i>
+                    </label>
                     <input
                       onChange={handleChange}
                       name="imagenHorizontal"
@@ -366,7 +371,7 @@ export default function Peliculas(pelis) {
                     ></input>
                   </div>
                   <div className="item-input">
-                    <label htmlFor="genero">Genero</label>
+                    <label htmlFor="genero">Género</label>
                     <input
                       onChange={handleChange}
                       name="genero"
