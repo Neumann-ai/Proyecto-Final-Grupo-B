@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 //import { Toaster, toast } from "react-hot-toast";
 
-export default function Peliculas(pelis) {
+export default function Peliculas({pelis}) {
   // COLUMNAS
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 200 },
     {
       field: "nombre",
       headerName: "Nombre",
@@ -57,7 +57,7 @@ export default function Peliculas(pelis) {
     {
       field: "accion",
       headerName: "Acciones",
-      width: 160,
+      width: 100,
       renderCell: (params) => {
         return (
           // BOTON EDITAR
@@ -137,6 +137,7 @@ export default function Peliculas(pelis) {
     };
     axios.post("/peliculas", nuevoItem);
     getPeliculas();
+    document.getElementById("cerrarModalAgregarItem").click();
     setItem({
       nombre: "",
       director: "",
@@ -148,8 +149,8 @@ export default function Peliculas(pelis) {
       fecha_de_Estreno: "",
       sinopsis: "",
       genero: "",
-      esPelicula: false,
-      destacada: false,
+      esPelicula: "",
+      destacada: "",
     });
     getPeliculas();
   }
@@ -173,9 +174,7 @@ export default function Peliculas(pelis) {
     getPeliculas();
   }, [pelis]);
 
-  const sonPeliculas = peliculas.filter(
-    (pelicula) => pelicula.esPelicula === true
-  );
+  const sonPeliculas = peliculas.filter((pelicula) => pelicula.esPelicula === true);
 
   const filas = sonPeliculas.map((pelicula) => {
     const peliculaActual = {
@@ -412,6 +411,7 @@ export default function Peliculas(pelis) {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                id="cerrarModalAgregarItem"
               >
                 Cerrar
               </button>

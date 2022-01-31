@@ -4,10 +4,10 @@ import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Series(pelis) {
+export default function Series({pelis}) {
   // COLUMNAS
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 200 },
     {
       field: "nombre",
       headerName: "Nombre",
@@ -56,7 +56,7 @@ export default function Series(pelis) {
     {
       field: "accion",
       headerName: "Acciones",
-      width: 160,
+      width: 100,
       renderCell: (params) => {
         return (
           // BOTON EDITAR
@@ -135,6 +135,7 @@ export default function Series(pelis) {
       destacada: item.destacada,
     };
     axios.post("/peliculas", nuevoItem);
+    document.getElementById("cerrarModalAgregarItem").click();
     getSeries();
     setItem({
       nombre: "",
@@ -409,6 +410,7 @@ export default function Series(pelis) {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                id="cerrarModalAgregarItem"
               >
                 Cerrar
               </button>

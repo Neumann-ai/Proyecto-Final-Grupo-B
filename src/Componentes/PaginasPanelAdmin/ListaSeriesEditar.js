@@ -189,7 +189,7 @@ export default function Pelicula() {
                 <label htmlFor="serie">Serie</label>
               </div>
             </div>
-            <div className="item-input" style={{ height: 400, width: "100%" }}>
+            <div className="item-input" style={{ height: 450, width: "100%" }}>
               <div className="agregar-contenido">
                 <label htmlFor="contenido">Contenido</label>{" "}
                 <button

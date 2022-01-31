@@ -4,6 +4,8 @@ import axios from "axios";
 import Footer from "./Componentes/Footer/Footer";
 import Navbar from "./Componentes/Navbar/Navbar";
 import Cargando from "./Imagenes/Cargando-icon.svg";
+import Slider from "./Componentes/Slider/Slider";
+
 
 export default function Home({ tipo }) {
   const [listas, setListas] = useState([]);
@@ -29,7 +31,7 @@ export default function Home({ tipo }) {
   return (
     <div className="contenedor-navbar-configuacion">
       <Navbar />
-      <h2>Aqui va el slider</h2>
+      <Slider/>
       {listasMostrar.map((lista) => (
         <ListaCards lista={lista} />
       ))}
