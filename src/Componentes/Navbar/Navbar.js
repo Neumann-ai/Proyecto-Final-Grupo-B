@@ -64,6 +64,28 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/series"
+                >
+                  Series
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/peliculas"
+                >
+                  Peliculas
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   <img
                     className={"icon filter-purple"}
@@ -92,7 +114,14 @@ function Navbar() {
                 {dataFiltrada.length !== 0 && (
                   <div className="dataResultado">
                     {dataFiltrada.slice(0, 14).map((value, key) => {
-                      return <Link to={{ pathname: `/ver/${value._id}` }} className="busqueda">{value.nombre}</Link>;
+                      return (
+                        <Link
+                          to={{ pathname: `/ver/${value._id}` }}
+                          className="busqueda"
+                        >
+                          {value.nombre}
+                        </Link>
+                      );
                     })}
                   </div>
                 )}

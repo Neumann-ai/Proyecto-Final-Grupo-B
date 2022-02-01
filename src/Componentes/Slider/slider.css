@@ -1,5 +1,6 @@
 .contenedor-slider {
   margin-bottom: 10em;
+  position: relative;
 }
 
 .carousel-inner {
@@ -32,9 +33,9 @@
 
 .titulo-header {
   background-color: var(--clr-morado1);
-  display: inline-block;
+  display: flex;
   position: relative;
-  padding: 1em 3em;
+  padding: 1em 2em;
   margin-right: 1em;
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -50,7 +51,7 @@
   color: #fff;
   position: relative;
   height: 4em;
-  width: 30em;
+  width: min(400px, 90%);
   bottom: -4.5em;
   right: 0;
 }
@@ -59,6 +60,13 @@
     text-decoration: none;
     color: #fff;
     font-weight: bolder;
+}
+
+.categorias{
+  position: absolute;
+  bottom: -250px;
+  padding-left: 5em;
+  z-index: 10;
 }
 
 @media(max-width: 1090px){

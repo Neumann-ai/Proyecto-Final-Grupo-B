@@ -23,8 +23,8 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/peliculas" element={<Home tipo="peliculas" />} />
-          <Route path="/series" element={<Home tipo="series" />} />
+          <Route path="/peliculas" element={<Home tipo="pelicula" />} />
+          <Route path="/series" element={<Home tipo="serie" />} />
           <Route path="/configuracion" element={<Configuracion />}>
             <Route index element={<MisDatos />} />
             <Route path="misdatos" element={<MisDatos />} />

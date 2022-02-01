@@ -4,10 +4,19 @@ import "./slider.css";
 import RollflixHeader from "../../Imagenes/ROLLFLIX-HEADER.jpg";
 import { Link } from "react-router-dom";
 
-export default function Slider() {
+export default function Slider({tipo, setGenero}) {
   const [films, setFilms] = useState([]);
+const [lista, setLista] = useState("");
+
   useEffect(() => {
     async function getFilms() {
+      await axios
+        .get(`http://localhost:4001/api/listapeliculas/filterList${
+          tipo ? "?tipo="+tipo : ""
+        }`)
+        .then((response) => {
+          setLista(response.data);         
+        });
       try {
         const film = await axios.get(`http://localhost:4001/api/peliculas/`);
         setFilms(film.data);
@@ -16,15 +25,23 @@ export default function Slider() {
       }
     }
     getFilms();
-  }, []);
+  }, [tipo]);
 
-  const [destacadas, setDestacadas] = useState([]);
+  const listaCategorias = []
 
-  useEffect(() => {
-    if (films) {
-      setDestacadas(films.filter((film) => film.destacada === true));
-    }
-  }, [films]);
+  for (let i = 0; i < lista.length; i++) {
+    const element = lista[i].genero;
+    listaCategorias.push(element)
+  }
+
+
+ // const [destacadas, setDestacadas] = useState([]);
+
+  // useEffect(() => {
+  //   if (films) {
+  //     setDestacadas(films.filter((film) => film.destacada === true));
+  //   }
+  // }, [films]);
 
   //   const header = destacadas.map((element) => {
   //     const mostrarDestacada = {
@@ -38,6 +55,21 @@ export default function Slider() {
 
   return (
     <div className="contenedor-slider">
+      {tipo && (
+        <div className="categorias">
+          <select
+            name="genero"
+            id="genero"
+            aria-label="Default select example"
+            class="form-select"
+            onChange={(e) => setGenero(e.target.value)}
+          >
+            <option>Genero</option>
+            {listaCategorias.map((categoria) => <option value={categoria}>{categoria}</option>)}
+          </select>
+        </div>
+      )}
+
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
@@ -96,8 +128,8 @@ export default function Slider() {
           ></button>
         </div>
         <div className="carousel-inner">
-          <div class="carousel-item active">
-            <img src={RollflixHeader} class="d-block w-100" alt="..." />
+          <div className="carousel-item active">
+            <img src={RollflixHeader} className="d-block w-100" alt="..." />
           </div>
           {films.map((element) =>
             element.destacada === true ? (

@@ -1,38 +1,41 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Cargando from "../Imagenes/Cargando-icon.svg";
 
-function CardItems({ index, item }) {
+function CardItems({ item }) {
   const [pelicula, setPelicula] = useState({});
 
-  useEffect(() => {
-    const getPeliculas = async () => {
-      try {
-        const res = await axios.get("peliculas/" + item);
-        setPelicula(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getPeliculas();
+  const getFilms = useCallback(async () => {
+    try {
+      await axios.get("peliculas/" + item).then((response) => {
+        setPelicula(response.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }, [item]);
 
-const mostrar = item ? (
-    
-  <Link to={{ pathname: `/ver/${pelicula?._id}` }} className="link-card">
-    <div className="card-contenedor">
-      <img src={pelicula?.imagenVertical || Cargando} alt="imagen pelicula" />
-      <div className="card-info">
-        <p className="card-titulo">{pelicula?.nombre}</p>
-        <hr/>
-        <p className="card-subinfo">{pelicula?.sinopsis}</p>
+  useEffect(() => {
+    getFilms();
+  }, [getFilms]);
+
+  const mostrar = item ? (
+    <Link to={{ pathname: `/ver/${pelicula?._id}` }} className="link-card">
+      <div className="card-contenedor">
+        <img src={pelicula?.imagenVertical || Cargando} alt="imagen pelicula" />
+        <div className="card-info">
+          <p className="card-titulo">{pelicula?.nombre}</p>
+          <hr />
+          <p className="card-subinfo">{pelicula?.sinopsis}</p>
+        </div>
       </div>
-    </div>
-  </Link>
-) : ""
-  
-  return mostrar
+    </Link>
+  ) : (
+    ""
+  );
+
+  return mostrar;
 }
 
 export default CardItems;

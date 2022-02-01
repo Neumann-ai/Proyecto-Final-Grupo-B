@@ -118,5 +118,10 @@ li a {
     background-color: rgb(228, 228, 228);
 }
 
+.categorias{
+    position: absolute;
+    top: 20%;
+}
+
 @media only screen and (min-width:529){
 }

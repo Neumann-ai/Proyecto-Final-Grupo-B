@@ -2,7 +2,7 @@ import { useState } from "react";
 import CardItems from "./CardItems";
 import "../Estilos/EstilosCard.css";
 
-function ListaCards({ lista }) {
+function ListaCards({ lista, genero }) {
   const [scrollX, setScrollX] = useState(-500);
 
   const handleLeft = () => {
@@ -31,26 +31,28 @@ function ListaCards({ lista }) {
     }
   };
 
+ 
+
   return (
     <section className="contenedor-principal">
       <h3 className="categoria-lista">{lista.nombre}</h3>
       <button
         id="flecha-izquierda"
-        className="flecha-izquierda"
+        className={`${genero !== null ? "flecha-izquierda d-none" : "flecha-izquierda " }`}
         onClick={handleLeft}
       >
         <i className="fas fa-caret-left"></i>
       </button>
       <section className="contenedor-lista-items">
-        <section className="lista-items" style={{ left: scrollX }}>
-          { lista.contenido.length > 1 ?  lista.contenido.map((item, index) => (
-            <CardItems item={item} index={index} />
-          )) : ""}
+        <section className={`${genero !== null ? "lista-con-genero" : "lista-sin-genero"}`} style={{ left: scrollX }}>
+          {lista.contenido.length > 1
+            ? lista.contenido.map((item) => <CardItems item={item} />)
+            : ""}
         </section>
       </section>
       <button
         id="flecha-derecha"
-        className="flecha-derecha"
+        className= {`${genero !== null ? "flecha-derecha d-none" : "flecha-derecha " }`}
         onClick={handleRight}
       >
         <i className="fas fa-caret-right"></i>

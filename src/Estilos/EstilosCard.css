@@ -20,12 +20,21 @@
   transition: all ease 1s;
 }
 
-.contenedor-principal .lista-items {
+.contenedor-principal .lista-sin-genero {
   display: flex;
   flex-wrap: nowrap;
   transition: all ease 1s;
   transform: translateX(0);
   position: relative;
+}
+
+.contenedor-principal .lista-con-genero {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all ease 1s;
+  transform: translateX(0);
+  position: initial;
+  justify-content: space-around;
 }
 
 .contenedor-principal .categoria-lista {

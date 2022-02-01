@@ -15,7 +15,7 @@ export default function Pelicula() {
   const getListas = useCallback(async () => {
     try {
       await axios
-        .get(`http://localhost:4001/api/listapeliculas/${listaId}`)
+        .get(`http://localhost:4001/api/listapeliculas/find/${listaId}`)
         .then((response) => {
           setLista(response.data);
           setContenido(response.data.contenido);
@@ -77,6 +77,10 @@ export default function Pelicula() {
     arrayPeliculaID.push(...resultFilm);
   }
 
+  console.log(contenido);
+
+  console.log(arrayPeliculaID);
+
   const filas = arrayPeliculaID.map((pelicula) => {
     return {
       id: pelicula._id,
@@ -104,7 +108,7 @@ export default function Pelicula() {
       tipo: updatedItem.tipo,
       genero: updatedItem.genero,
     };
-    axios.put(`/listapeliculas/${listaId}`, informacionActualizada);
+    axios.put(`/listapeliculas/find/${listaId}`, informacionActualizada);
     window.location.reload();
   }
 
@@ -117,7 +121,7 @@ export default function Pelicula() {
       const respuesta = await axios.post(
         `/listapeliculas/${listaId}/agregarfilm/${select}`
       );
-      setSelect("")
+      setSelect("");
       document.getElementById("cerrarAgregarItemLista").click();
       setContenido(respuesta.data.contenido);
     } else {

@@ -15,7 +15,7 @@ export default function Pelicula() {
   const getListas = useCallback(async () => {
     try {
       await axios
-        .get(`http://localhost:4001/api/listapeliculas/${listaId}`)
+        .get(`http://localhost:4001/api/listapeliculas/find/${listaId}`)
         .then((response) => {
           setLista(response.data);
           setContenido(response.data.contenido);
@@ -73,6 +73,7 @@ export default function Pelicula() {
 
   for (let index = 0; index < contenido.length; index++) {
     const element = contenido[index];
+    console.log(element);
     const resultFilm = films.filter((i) => i._id === element);
     arrayPeliculaID.push(...resultFilm);
   }
@@ -104,7 +105,7 @@ export default function Pelicula() {
       tipo: updatedItem.tipo,
       genero: updatedItem.genero,
     };
-    axios.put(`/listapeliculas/${listaId}`, informacionActualizada);
+    axios.put(`/listapeliculas/find/${listaId}`, informacionActualizada);
     window.location.reload();
   }
 
